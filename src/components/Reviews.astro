@@ -1,0 +1,28 @@
+---
+const reviewsCount = 6;
+---
+
+<section class="bg-reef-200 py-24 rounded-[128px]" id="reviews">
+  <div class="container">
+    <h3 class="font-extrabold text-5xl text-stromboli-900">
+      Их жизнь уже изменилась к лучшему
+    </h3>
+    <div class="grid grid-cols-2 gap-x-[30px] gap-y-11 mt-16">
+      {
+        Array.from({ length: reviewsCount }).map(() => (
+          <iframe
+            class="rounded-3xl object-cover"
+            loading="lazy"
+            width="100%"
+            height="300"
+            src="https://www.youtube-nocookie.com/embed/0JUN9aDxVmI?si=6d4QTe1VphumwB1R"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>

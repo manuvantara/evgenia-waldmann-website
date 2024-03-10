@@ -1,0 +1,52 @@
+---
+import { Image } from "astro:assets";
+import Header from "./Header.astro";
+import heroImage from "../assets/hero.png";
+---
+
+<div class="bg-stromboli-700 rounded-b-[128px]">
+  <Header />
+
+  <div class="container">
+    <div class="flex items-end">
+      <div class="pt-[100px] grid pb-16 items-start">
+        <h1 class="font-bold text-6xl max-w-2xl text-stromboli-50">
+          Жизнь без травм: результат после первого сеанса.
+        </h1>
+        <div class="font-medium text-lg max-w-lg text-stromboli-200 mt-8">
+          <i
+            >“Мой девиз: каждый сам Творец своей жизни! Все в твоих руках! Нет
+            ничего невозможного! Главное желание и стремление!”</i
+          >
+
+          <p class="mt-6">— Евгения Вальдманн, психолог</p>
+        </div>
+
+        <a
+          href="#contact"
+          class="font-semibold flex gap-2.5 items-center text-lg mt-12 w-fit bg-reef-200 px-6 py-3 text-stromboli-700 rounded-3xl"
+        >
+          Записаться на консультацию
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            class="fill-stromboli-700"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z"
+            ></path>
+          </svg>
+        </a>
+      </div>
+      <Image
+        width={531}
+        height={564}
+        src={heroImage}
+        loading="eager"
+        alt="Evgenia Valdmann"
+      />
+    </div>
+  </div>
+</div>

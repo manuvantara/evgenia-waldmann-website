@@ -1,0 +1,54 @@
+---
+import Accordion from "./Accordion.astro";
+import AccordionItem from "./AccordionItem.astro";
+---
+
+<section class="bg-stromboli-700 py-24 rounded-[128px]" id="program">
+  <div class="container">
+    <h3 class="font-extrabold text-5xl text-stromboli-50 text-center">
+      Моя авторская целительная программа “Перезагрузка: возвращение истинного
+      себя”
+    </h3>
+    <div class="mt-16 grid grid-cols-3 gap-8">
+      <Accordion>
+        <AccordionItem value="first">
+          <span
+            class="font-bold text-stromboli-50 text-left text-base"
+            slot="header">Быстрый анализ ситуации и подбор инструментов</span
+          >
+          <div class="rounded-full bg-reef-200 size-8" data-icon slot="icon">
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 25 24"
+              class="fill-stromboli-700 transition-transform"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.07699 8.58008L12.667 13.1701L17.257 8.58008L18.667 10.0001L12.667 16.0001L6.66699 10.0001L8.07699 8.58008Z"
+              ></path>
+            </svg>
+          </div>
+          <p>
+            Мой девиз: каждый сам Творец своей жизни! Все в твоих руках! Нет
+            ничего невозможного! Главное желание и стремление!
+          </p>
+        </AccordionItem>
+        <AccordionItem value="first">
+          <span slot="header">Перезагрузка: возвращение истинного себя</span>
+          <p>
+            Мой девиз: каждый сам Творец своей жизни! Все в твоих руках! Нет
+            ничего невозможного! Главное желание и стремление!
+          </p>
+        </AccordionItem>
+        <AccordionItem value="first">
+          <span slot="header">Перезагрузка: возвращение истинного себя</span>
+          <p>
+            Мой девиз: каждый сам Творец своей жизни! Все в твоих руках! Нет
+            ничего невозможного! Главное желание и стремление!
+          </p>
+        </AccordionItem>
+      </Accordion>
+    </div>
+  </div>
+</section>

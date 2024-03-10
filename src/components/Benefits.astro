@@ -1,0 +1,37 @@
+---
+import { Image } from "astro:assets";
+import image from "../assets/card-bg.jpg";
+
+const benefits = [
+  "Исцелиться от психосоматических расстройств",
+  "Наладить семейные отношения",
+  "Убрать негативные убеждения и эмоции",
+  "Освободиться от детских травм",
+  "Забыть про страхи и панические атаки",
+  "Избавиться от зависимостей.",
+  "Вернуть эмоциональное равновесие",
+  "Полюбить себя и повысить свою самооценку.",
+  "Реализовать свой потенциал и достичь гармонии.",
+];
+---
+
+<section class="py-24 container">
+  <h3 class="font-extrabold text-5xl text-stromboli-900">
+    Благодаря моей программе Вы сможете:
+  </h3>
+  <div class="mt-16 grid grid-cols-3 gap-3 text-stromboli-900">
+    {
+      benefits.map((benefit) => (
+        <div class="group relative overflow-hidden bg-reef-200 h-48 p-8 rounded-[32px] px-16 py-12 grid place-items-center border border-stromboli-900">
+          <Image
+            class="group-hover:opacity-100 opacity-0 z-0 absolute w-full h-full transition-opacity duration-300"
+            src={image}
+            alt=""
+            aria-hidden
+          />
+          <h4 class="font-bold text-2xl text-center relative">{benefit}</h4>
+        </div>
+      ))
+    }
+  </div>
+</section>

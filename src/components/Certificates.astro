@@ -1,0 +1,35 @@
+---
+import { Image } from "astro:assets";
+import c1 from "../assets/certificates/1.png";
+import c2 from "../assets/certificates/2.png";
+import c3 from "../assets/certificates/3.png";
+import c4 from "../assets/certificates/4.png";
+import c5 from "../assets/certificates/5.png";
+import c6 from "../assets/certificates/6.png";
+import c7 from "../assets/certificates/7.png";
+---
+
+<div class="relative flex h-full w-full pt-16 pb-8 overflow-hidden">
+  <div
+    class="flex relative overflow-hidden flex-row [gap:var(--gap)] [--gap:4rem]"
+  >
+    <div class="flex [gap:var(--gap)] shrink-0 animate-marquee">
+      <Image src={c1} alt="Certificate" height={200} loading="eager" />
+      <Image src={c2} alt="Certificate" height={200} loading="eager" />
+      <Image src={c3} alt="Certificate" height={200} loading="eager" />
+      <Image src={c4} alt="Certificate" height={200} loading="eager" />
+      <Image src={c5} alt="Certificate" height={200} loading="eager" />
+      <Image src={c6} alt="Certificate" height={200} loading="eager" />
+      <Image src={c7} alt="Certificate" height={200} loading="eager" />
+    </div>
+    <div class="flex [gap:var(--gap)] shrink-0 animate-marquee">
+      <Image src={c1} alt="Certificate" height={200} loading="eager" />
+      <Image src={c2} alt="Certificate" height={200} loading="eager" />
+      <Image src={c3} alt="Certificate" height={200} loading="eager" />
+      <Image src={c4} alt="Certificate" height={200} loading="eager" />
+      <Image src={c5} alt="Certificate" height={200} loading="eager" />
+      <Image src={c6} alt="Certificate" height={200} loading="eager" />
+      <Image src={c7} alt="Certificate" height={200} loading="eager" />
+    </div>
+  </div>
+</div>

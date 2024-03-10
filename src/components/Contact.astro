@@ -1,0 +1,48 @@
+<section class="bg-stromboli-700 pt-24 pb-6 rounded-t-[128px]">
+  <div class="container">
+    <h3 class="text-5xl text-center text-stromboli-50 font-extrabold">
+      Оставьте заявку на бесплатную консультацию и сделайте шаг на встречу к
+      улучшению твоей жизни уже сегодня!
+    </h3>
+    <p class="font-medium text-center text-lg text-stromboli-200 mt-8">
+      Воспользуйтесь возможностью получить персональную консультацию от опытного
+      специалиста — это Ваш шанс начать делать реальные изменения уже сегодня,
+      не откладывая счастье и благополучие на потом!
+    </p>
+    <form
+      class="mt-12 grid grid-cols-1 gap-4 max-w-md mx-auto"
+      action="https://formspree.io/f/mbjwvqbp"
+      method="POST"
+    >
+      <input
+        class="w-full bg-stromboli-50 rounded-3xl px-6 py-3"
+        type="text"
+        name="name"
+        placeholder="Как к Вам обращаться?"
+        required
+      />
+      <input
+        class="w-full bg-stromboli-50 rounded-3xl px-6 py-3"
+        type="tel"
+        name="phone"
+        placeholder="Номер телефона"
+        required
+      />
+      <div class="flex bg-stromboli-50 rounded-3xl overflow-hidden">
+        <input
+          class="w-full bg-stromboli-50 rounded-3xl px-6 py-3"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+          type="email"
+          name="email"
+          placeholder="Электронная почта"
+          required
+        />
+        <button
+          class="font-semibold flex items-center bg-reef-200 px-6 py-3 text-stromboli-700 rounded-3xl"
+        >
+          Отправить
+        </button>
+      </div>
+    </form>
+  </div>
+</section>

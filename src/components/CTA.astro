@@ -1,0 +1,44 @@
+---
+import { Image } from "astro:assets";
+import ctaBg from "../assets/cta-bg.jpg";
+---
+
+<section class="relative overflow-hidden py-24 rounded-[128px]">
+  <Image
+    class="absolute inset-0 w-full h-full object-cover z-0"
+    src={ctaBg}
+    alt=""
+    aria-hidden
+  />
+  <div class="container relative">
+    <h3 class="font-extrabold text-5xl text-stromboli-50 text-center">
+      Я знаю, как Вам помочь, потому что прошла этот путь сама и теперь
+      здоровая, успешная, счастливая и любимая!
+    </h3>
+    <p
+      class="font-medium text-lg text-stromboli-200 text-center max-w-[720px] mx-auto mt-6"
+    >
+      Я помогла сотням людей, таких же, как Вы, и теперь перед Вами стоит выбор
+      — готовы ли Вы к изменениям в своей жизни, чтобы стать здоровыми,
+      счастливыми и наслаждаться каждым моментом жизни? Гарантированный
+      результат, который можно проверить уже после первого сеанса!
+    </p>
+    <a
+      href="#contact"
+      class="font-semibold flex gap-2.5 items-center text-lg mx-auto mt-8 w-fit bg-reef-200 px-6 py-3 text-stromboli-700 rounded-3xl"
+    >
+      Записаться на консультацию
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        class="fill-stromboli-700"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 4L10.59 5.41L16.17 11H4V13H16.17L10.59 18.59L12 20L20 12L12 4Z"
+        ></path>
+      </svg>
+    </a>
+  </div>
+</section>
