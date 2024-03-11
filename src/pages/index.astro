@@ -28,3 +28,9 @@ import Footer from "../components/Footer.astro";
   <Contact />
   <Footer />
 </Layout>
+
+<script>
+  const hash = location.hash;
+  const element = hash && document.querySelector(hash);
+  element && element.scrollIntoView({ behavior: "instant" });
+</script>
