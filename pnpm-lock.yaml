@@ -28,6 +28,9 @@ dependencies:
     version: 5.4.2
 
 devDependencies:
+  css-has-pseudo:
+    specifier: ^6.0.2
+    version: 6.0.2(postcss@8.4.35)
   prettier:
     specifier: ^3.2.5
     version: 3.2.5
@@ -506,6 +509,18 @@ packages:
       "@babel/helper-validator-identifier": 7.22.20
       to-fast-properties: 2.0.0
     dev: false
+
+  /@csstools/selector-specificity@3.0.2(postcss-selector-parser@6.0.15):
+    resolution:
+      {
+        integrity: sha512-RpHaZ1h9LE7aALeQXmXrJkRG84ZxIsctEN2biEUmFyKpzFM3zZ35eUMcIzZFsw/2olQE6v69+esEqU2f1MKycg==,
+      }
+    engines: { node: ^14 || ^16 || >=18 }
+    peerDependencies:
+      postcss-selector-parser: ^6.0.13
+    dependencies:
+      postcss-selector-parser: 6.0.15
+    dev: true
 
   /@emmetio/abbreviation@2.3.3:
     resolution:
@@ -2309,6 +2324,21 @@ packages:
       which: 2.0.2
     dev: false
 
+  /css-has-pseudo@6.0.2(postcss@8.4.35):
+    resolution:
+      {
+        integrity: sha512-Z2Qm5yyOvJRTy6THdUlnGIX6PW/1wOc4FHWlfkcBkfkpZ3oz6lPdG+h+J7t1HZHT4uSSVR8XatXiMpqMUADXow==,
+      }
+    engines: { node: ^14 || ^16 || >=18 }
+    peerDependencies:
+      postcss: ^8.4
+    dependencies:
+      "@csstools/selector-specificity": 3.0.2(postcss-selector-parser@6.0.15)
+      postcss: 8.4.35
+      postcss-selector-parser: 6.0.15
+      postcss-value-parser: 4.2.0
+    dev: true
+
   /cssesc@3.0.0:
     resolution:
       {
@@ -2316,7 +2346,6 @@ packages:
       }
     engines: { node: ">=4" }
     hasBin: true
-    dev: false
 
   /debug@4.3.4:
     resolution:
@@ -4072,7 +4101,6 @@ packages:
       }
     engines: { node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1 }
     hasBin: true
-    dev: false
 
   /napi-build-utils@1.0.2:
     resolution:
@@ -4369,7 +4397,6 @@ packages:
       {
         integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==,
       }
-    dev: false
 
   /picomatch@2.3.1:
     resolution:
@@ -4483,14 +4510,12 @@ packages:
     dependencies:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
-    dev: false
 
   /postcss-value-parser@4.2.0:
     resolution:
       {
         integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==,
       }
-    dev: false
 
   /postcss@8.4.35:
     resolution:
@@ -4502,7 +4527,6 @@ packages:
       nanoid: 3.3.7
       picocolors: 1.0.0
       source-map-js: 1.0.2
-    dev: false
 
   /prebuild-install@7.1.2:
     resolution:
@@ -5155,7 +5179,6 @@ packages:
         integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==,
       }
     engines: { node: ">=0.10.0" }
-    dev: false
 
   /space-separated-tokens@2.0.2:
     resolution:
@@ -5740,7 +5763,6 @@ packages:
       {
         integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==,
       }
-    dev: false
 
   /vfile-location@5.0.2:
     resolution:
