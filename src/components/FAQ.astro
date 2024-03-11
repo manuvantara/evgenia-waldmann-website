@@ -45,37 +45,37 @@ const faqItems = [
 ---
 
 <section
-  class="container px-4 md:px-0 py-24 before:block scroll-mt-24"
+  class="container scroll-mt-24 px-4 py-24 before:block md:px-0"
   id="faq"
 >
-  <h2 class="font-extrabold text-4xl md:text-5xl text-stromboli-900">
+  <h2 class="text-4xl font-extrabold text-stromboli-900 md:text-5xl">
     Часто задаваемые вопросы
   </h2>
   <Accordion
-    class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-end"
+    class="mt-16 grid grid-cols-1 items-end gap-8 md:grid-cols-2 lg:grid-cols-3"
   >
     {
       faqItems.map((item) => (
-        <div class="relative overflow-hidden p-4 min-h-[360px]">
+        <div class="relative min-h-[360px] overflow-hidden p-4">
           <Image
-            class="rounded-3xl absolute inset-0 z-0 object-cover w-full h-full"
+            class="absolute inset-0 z-0 h-full w-full rounded-3xl object-cover"
             src={bg}
             alt=""
             height={360}
             aria-hidden
           />
           <AccordionItem
-            class="rounded-3xl relative bg-reef-200 p-4 transition-all duration-300 ease-in-out block"
+            class="relative block rounded-3xl bg-reef-200 p-4 transition-all duration-300 ease-in-out"
             value={item.value}
           >
             <span
-              class="font-bold text-reef-950 text-left text-base"
+              class="text-left text-base font-bold text-reef-950"
               slot="header"
             >
               {item.question}
             </span>
             <div
-              class="rounded-full bg-stromboli-700 size-8 transition-transform"
+              class="size-8 rounded-full bg-stromboli-700 transition-transform"
               data-icon
               slot="icon"
             >
@@ -89,7 +89,7 @@ const faqItems = [
                 <path d="M8.07699 8.58008L12.667 13.1701L17.257 8.58008L18.667 10.0001L12.667 16.0001L6.66699 10.0001L8.07699 8.58008Z" />
               </svg>
             </div>
-            <p class="text-reef-800 pt-4">{item.answer}</p>
+            <p class="pt-4 text-reef-800">{item.answer}</p>
           </AccordionItem>
         </div>
       ))

@@ -40,34 +40,34 @@ const programItems = [
 ---
 
 <section
-  class="bg-stromboli-700 max-w-[1440px] mx-auto py-24 md:rounded-[128px] scroll-mt-24"
+  class="mx-auto max-w-[1440px] scroll-mt-24 bg-stromboli-700 py-24 md:rounded-[128px]"
   id="program"
 >
   <div class="container px-4">
     <h2
-      class="font-extrabold text-4xl md:text-5xl text-stromboli-50 md:text-center"
+      class="text-4xl font-extrabold text-stromboli-50 md:text-center md:text-5xl"
     >
       Моя авторская целительная программа “Перезагрузка: возвращение истинного
       себя”
     </h2>
 
     <Accordion
-      class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+      class="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
     >
       {
         programItems.map((item) => (
           <AccordionItem
-            class="rounded-3xl bg-stromboli-600 p-4 transition-all duration-300 ease-in-out flex flex-col"
+            class="flex flex-col rounded-3xl bg-stromboli-600 p-4 transition-all duration-300 ease-in-out"
             value={item.value}
           >
             <span
-              class="font-bold text-stromboli-50 text-left text-base"
+              class="text-left text-base font-bold text-stromboli-50"
               slot="header"
             >
               {item.header}
             </span>
             <div
-              class="rounded-full bg-reef-200 size-8 transition-transform"
+              class="size-8 rounded-full bg-reef-200 transition-transform"
               data-icon
               slot="icon"
             >
@@ -81,7 +81,7 @@ const programItems = [
                 <path d="M8.07699 8.58008L12.667 13.1701L17.257 8.58008L18.667 10.0001L12.667 16.0001L6.66699 10.0001L8.07699 8.58008Z" />
               </svg>
             </div>
-            <p class="text-stromboli-200 pt-4">{item.content}</p>
+            <p class="pt-4 text-stromboli-200">{item.content}</p>
           </AccordionItem>
         ))
       }

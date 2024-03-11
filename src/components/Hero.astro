@@ -3,16 +3,14 @@ import { Image } from "astro:assets";
 import heroImage from "../assets/hero.png";
 ---
 
-<div
-  class="bg-stromboli-700 max-w-[1440px] mx-auto rounded-b-3xl lg:rounded-b-[128px]"
->
-  <div class="container px-4 relative">
-    <div class="flex items-end">
-      <div class="pt-14 md:pt-20 grid pb-16 items-start">
-        <h1 class="font-bold text-4xl md:text-6xl max-w-2xl text-stromboli-50">
+<div class="mx-auto max-w-[1440px] bg-stromboli-700 lg:rounded-b-[128px]">
+  <div class="container relative px-4">
+    <div class="flex flex-col items-end lg:flex-row">
+      <div class="grid items-start pb-16 pt-14 md:pt-20">
+        <h1 class="max-w-2xl text-4xl font-bold text-stromboli-50 md:text-6xl">
           Жизнь без травм: результат после первого сеанса.
         </h1>
-        <div class="font-medium text-lg max-w-lg text-stromboli-200 mt-8">
+        <div class="mt-8 max-w-lg text-lg font-medium text-stromboli-200">
           <i
             >“Мой девиз: каждый сам Творец своей жизни! Все в твоих руках! Нет
             ничего невозможного! Главное желание и стремление!”</i
@@ -23,7 +21,7 @@ import heroImage from "../assets/hero.png";
 
         <a
           href="#contact"
-          class="font-semibold flex gap-2.5 items-center text-lg mt-8 md:mt-12 w-fit bg-reef-200 px-6 py-3 text-stromboli-700 rounded-3xl"
+          class="mt-8 flex w-fit items-center gap-2.5 rounded-3xl bg-reef-200 px-6 py-3 text-lg font-semibold text-stromboli-700 md:mt-12"
         >
           Записаться на консультацию
           <svg
@@ -40,8 +38,7 @@ import heroImage from "../assets/hero.png";
         </a>
       </div>
       <Image
-        hidden
-        class="absolute lg:relative object-scale-down"
+        class="relative object-scale-down"
         width={531}
         height={564}
         src={heroImage}

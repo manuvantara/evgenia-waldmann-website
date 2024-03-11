@@ -3,22 +3,24 @@ import { Image } from "astro:assets";
 import ctaBg from "../assets/cta-bg.jpg";
 ---
 
-<section class="relative max-w-[1440px] mx-auto overflow-hidden py-24 md:rounded-[128px]">
+<section
+  class="relative mx-auto max-w-[1440px] overflow-hidden py-24 md:rounded-[128px]"
+>
   <Image
-    class="absolute inset-0 w-full h-full object-cover z-0"
+    class="absolute inset-0 z-0 h-full w-full object-cover"
     src={ctaBg}
     alt=""
     aria-hidden
   />
   <div class="container relative px-4">
     <h3
-      class="font-extrabold text-4xl md:text-5xl text-stromboli-50 md:text-center"
+      class="text-4xl font-extrabold text-stromboli-50 md:text-center md:text-5xl"
     >
       Я знаю, как Вам помочь, потому что прошла этот путь сама и теперь
       здоровая, успешная, счастливая и любимая!
     </h3>
     <p
-      class="font-medium text-lg text-stromboli-200 md:text-center max-w-[720px] mx-auto mt-6"
+      class="mx-auto mt-6 max-w-[720px] text-lg font-medium text-stromboli-200 md:text-center"
     >
       Я помогла сотням людей, таких же, как Вы, и теперь перед Вами стоит выбор
       — готовы ли Вы к изменениям в своей жизни, чтобы стать здоровыми,
@@ -27,7 +29,7 @@ import ctaBg from "../assets/cta-bg.jpg";
     </p>
     <a
       href="#contact"
-      class="font-semibold flex gap-2.5 items-center text-lg mx-auto mt-8 w-fit bg-reef-200 px-6 py-3 text-stromboli-700 rounded-3xl"
+      class="mx-auto mt-8 flex w-fit items-center gap-2.5 rounded-3xl bg-reef-200 px-6 py-3 text-lg font-semibold text-stromboli-700"
     >
       Записаться на консультацию
       <svg

@@ -26,12 +26,12 @@ const items = [
 <header
   data-header
   data-scrolled="false"
-  class="sticky top-0 max-w-[1440px] mx-auto lg:data-[scrolled=true]:rounded-b-[128px] z-50 bg-stromboli-700 pt-6 pb-8 px-4"
+  class="sticky top-0 z-50 mx-auto max-w-[1440px] bg-stromboli-700 px-4 pb-8 pt-6 lg:data-[scrolled=true]:rounded-b-[128px]"
 >
-  <div class="container flex justify-between items-center">
+  <div class="container flex items-center justify-between">
     <Image src={logo} alt="Logo" width={100} height={48} loading="eager" />
-    <nav class="bg-stromboli-600 py-4 px-8 rounded-3xl hidden lg:block">
-      <ul class="flex gap-[42px] text-stromboli-200 text-sm font-semibold">
+    <nav class="hidden rounded-3xl bg-stromboli-600 px-8 py-4 lg:block">
+      <ul class="flex gap-[42px] text-sm font-semibold text-stromboli-200">
         {
           items.map((item) => (
             <li>
@@ -44,7 +44,7 @@ const items = [
 
     <a
       href="#contact"
-      class="font-semibold text-reef-200 px-6 py-3 border border-reef-200 rounded-3xl hidden lg:block"
+      class="hidden rounded-3xl border border-reef-200 px-6 py-3 font-semibold text-reef-200 lg:block"
     >
       Оставить заявку
     </a>

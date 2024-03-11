@@ -17,7 +17,7 @@ const triggerId = `accordion-${value}-id-${Math.random().toString(36).slice(2)}`
     <button
       type="button"
       aria-expanded="true"
-      class="flex gap-4 justify-between transition-all [&[data-state=open]>[data-icon]]:rotate-180"
+      class="flex justify-between gap-4 transition-all [&[data-state=open]>[data-icon]]:rotate-180"
       aria-controls={panelId}
       data-value={value}
       data-state="closed"
@@ -35,7 +35,7 @@ const triggerId = `accordion-${value}-id-${Math.random().toString(36).slice(2)}`
     aria-labelledby={triggerId}
     data-state="closed"
     data-panel
-    class="overflow-hidden grow transition-[max-height] duration-300 ease-in-out max-h-0"
+    class="max-h-0 grow overflow-hidden transition-[max-height] duration-300 ease-in-out"
   >
     <slot />
   </div>

@@ -3,14 +3,14 @@ const reviewsCount = 6;
 ---
 
 <section
-  class="bg-reef-200 max-w-[1440px] mx-auto py-24 md:rounded-[128px] scroll-mt-24"
+  class="mx-auto max-w-[1440px] scroll-mt-24 bg-reef-200 py-24 md:rounded-[128px]"
   id="reviews"
 >
   <div class="container px-4 md:px-0">
-    <h2 class="font-extrabold text-4xl md:text-5xl text-stromboli-900">
+    <h2 class="text-4xl font-extrabold text-stromboli-900 md:text-5xl">
       Их жизнь уже изменилась к лучшему
     </h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-[30px] gap-y-11 mt-16">
+    <div class="mt-16 grid grid-cols-1 gap-x-[30px] gap-y-11 md:grid-cols-2">
       {
         Array.from({ length: reviewsCount }).map(() => (
           <iframe
