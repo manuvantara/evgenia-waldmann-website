@@ -26,7 +26,7 @@ const items = [
 <header
   data-header
   data-scrolled="false"
-  class="sticky top-0 z-50 mx-auto max-w-[1440px] bg-stromboli-700 px-4 pb-8 pt-6 lg:data-[scrolled=true]:rounded-b-[128px]"
+  class="sticky top-0 z-50 mx-auto max-w-[1440px] bg-stromboli-700 px-4 pb-8 pt-6 data-[scrolled=true]:bg-stromboli-700/80 data-[scrolled=true]:backdrop-blur-lg lg:data-[scrolled=true]:rounded-b-[128px]"
 >
   <div class="container flex items-center justify-between">
     <Image src={logo} alt="Logo" width={100} height={48} loading="eager" />
@@ -34,7 +34,7 @@ const items = [
       <ul class="flex gap-[42px] text-sm font-semibold text-stromboli-100">
         {
           items.map((item) => (
-            <li class="hover:text-stromboli-50 transition-all duration-200">
+            <li class="transition-all duration-200 hover:text-stromboli-50">
               <a href={item.href}>{item.name}</a>
             </li>
           ))
