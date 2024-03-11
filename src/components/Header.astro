@@ -70,10 +70,14 @@ const items = [
   const menuButton = document.querySelector("[data-menu-button]");
   const menu = document.querySelector("[data-menu]");
 
-  const bounds = header?.getBoundingClientRect();
+  if (!header || !menuButton || !menu) {
+    throw new Error("Header, menu button or menu not found");
+  }
+
+  const { height } = header?.getBoundingClientRect();
 
   window.addEventListener("scroll", () => {
-    if (window.scrollY > bounds?.height) {
+    if (window.scrollY > height) {
       header?.setAttribute("data-scrolled", "true");
     } else {
       header?.setAttribute("data-scrolled", "false");
