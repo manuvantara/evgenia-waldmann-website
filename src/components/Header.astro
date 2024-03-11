@@ -31,10 +31,10 @@ const items = [
   <div class="container flex items-center justify-between">
     <Image src={logo} alt="Logo" width={100} height={48} loading="eager" />
     <nav class="hidden rounded-3xl bg-stromboli-600 px-8 py-4 lg:block">
-      <ul class="flex gap-[42px] text-sm font-semibold text-stromboli-200">
+      <ul class="flex gap-[42px] text-sm font-semibold text-stromboli-100">
         {
           items.map((item) => (
-            <li>
+            <li class="hover:text-stromboli-50 transition-all duration-200">
               <a href={item.href}>{item.name}</a>
             </li>
           ))
