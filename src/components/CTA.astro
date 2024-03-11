@@ -3,20 +3,22 @@ import { Image } from "astro:assets";
 import ctaBg from "../assets/cta-bg.jpg";
 ---
 
-<section class="relative overflow-hidden py-24 rounded-[128px]">
+<section class="relative max-w-[1440px] mx-auto overflow-hidden py-24 md:rounded-[128px]">
   <Image
     class="absolute inset-0 w-full h-full object-cover z-0"
     src={ctaBg}
     alt=""
     aria-hidden
   />
-  <div class="container relative">
-    <h3 class="font-extrabold text-5xl text-stromboli-50 text-center">
+  <div class="container relative px-4">
+    <h3
+      class="font-extrabold text-4xl md:text-5xl text-stromboli-50 md:text-center"
+    >
       Я знаю, как Вам помочь, потому что прошла этот путь сама и теперь
       здоровая, успешная, счастливая и любимая!
     </h3>
     <p
-      class="font-medium text-lg text-stromboli-200 text-center max-w-[720px] mx-auto mt-6"
+      class="font-medium text-lg text-stromboli-200 md:text-center max-w-[720px] mx-auto mt-6"
     >
       Я помогла сотням людей, таких же, как Вы, и теперь перед Вами стоит выбор
       — готовы ли Вы к изменениям в своей жизни, чтобы стать здоровыми,

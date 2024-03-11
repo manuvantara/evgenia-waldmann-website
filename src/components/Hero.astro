@@ -1,16 +1,15 @@
 ---
 import { Image } from "astro:assets";
-import Header from "./Header.astro";
 import heroImage from "../assets/hero.png";
 ---
 
-<div class="bg-stromboli-700 rounded-b-[128px]">
-  <Header />
-
-  <div class="container">
+<div
+  class="bg-stromboli-700 max-w-[1440px] mx-auto rounded-b-3xl lg:rounded-b-[128px]"
+>
+  <div class="container px-4 relative">
     <div class="flex items-end">
-      <div class="pt-[100px] grid pb-16 items-start">
-        <h1 class="font-bold text-6xl max-w-2xl text-stromboli-50">
+      <div class="pt-14 md:pt-20 grid pb-16 items-start">
+        <h1 class="font-bold text-4xl md:text-6xl max-w-2xl text-stromboli-50">
           Жизнь без травм: результат после первого сеанса.
         </h1>
         <div class="font-medium text-lg max-w-lg text-stromboli-200 mt-8">
@@ -24,7 +23,7 @@ import heroImage from "../assets/hero.png";
 
         <a
           href="#contact"
-          class="font-semibold flex gap-2.5 items-center text-lg mt-12 w-fit bg-reef-200 px-6 py-3 text-stromboli-700 rounded-3xl"
+          class="font-semibold flex gap-2.5 items-center text-lg mt-8 md:mt-12 w-fit bg-reef-200 px-6 py-3 text-stromboli-700 rounded-3xl"
         >
           Записаться на консультацию
           <svg
@@ -41,6 +40,8 @@ import heroImage from "../assets/hero.png";
         </a>
       </div>
       <Image
+        hidden
+        class="absolute lg:relative object-scale-down"
         width={531}
         height={564}
         src={heroImage}

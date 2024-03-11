@@ -1,8 +1,95 @@
-<section class="container py-24" id="faq">
-  <h3 class="font-extrabold text-5xl text-stromboli-900">
+---
+import { Image } from "astro:assets";
+import Accordion from "./Accordion.astro";
+import AccordionItem from "./AccordionItem.astro";
+import bg from "../assets/faq-bg.jpg";
+
+const faqItems = [
+  {
+    value: "first",
+    question: "Насколько безопасен терапевтический гипноз?",
+    answer:
+      "Терапевтический гипноз абсолютно безопасен. Клиент сохраняет полный контроль и осознание происходящего, находясь в состоянии придельной концентрации в процессе сеанса. По завершению клиент помнит всё, что с ним происходило, и чувствует себя бодрым и полным сил.",
+  },
+  {
+    value: "second",
+    question: "Насколько эффективен  терапевтический гипноз?",
+    answer:
+      "Гипноз доказал свою высокую эффективность, работая на уровне подсознания, где записаны все воспоминания как на жёстком диске компьютера. Задача специалиста: найти эти воспоминания и переформатировать их на положительные на уровне подсознания.",
+  },
+  {
+    value: "third",
+    question: "Все ли люди поддаются гипнозу?",
+    answer:
+      "Большинство людей восприимчивы к гипнозу, за исключением случаев тяжелых психических заболеваний или состояний опьянения. Человек регулярно попадает в трансовое состояние, которое подобно гипнозу. Например, монотонная езда на машине, когда слипаются глаза,",
+  },
+  {
+    value: "fourth",
+    question: "Сколько времени нужно, чтобы решить проблему через гипноз?",
+    answer:
+      "Продолжительность индивидуальна и может варьироваться от 4 до 10 сеансов, в зависимости от сложности и глубины проблемы.",
+  },
+  {
+    value: "fifth",
+    question: "Поможет ли гипнотерапия контролировать злость и агрессию?",
+    answer:
+      "Да, гипнотерапия эффективно помогает управлять и полностью избавляться от злости, агрессии и гнева уже с первых сеансов.",
+  },
+  {
+    value: "sixth",
+    question: "С какого возраста можно применять гипнотерапию у детей?",
+    answer:
+      "Гипнотерапию с детьми можно начинать с 3-4 лет, когда ребёнок начинает осознавать собственное “Я”, с учётом индивидуального подхода и комплексной семейной терапии. ",
+  },
+];
+---
+
+<section class="container px-4 md:px-0 py-24" id="faq">
+  <h2 class="font-extrabold text-4xl md:text-5xl text-stromboli-900">
     Часто задаваемые вопросы
-  </h3>
-  <div class="mt-16 grid grid-cols-3 gap-8">
-    <!-- TODO: add accordions -->
-  </div>
+  </h2>
+  <Accordion
+    class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-end"
+  >
+    {
+      faqItems.map((item) => (
+        <div class="relative overflow-hidden p-4 min-h-[360px]">
+          <Image
+            class="rounded-3xl absolute inset-0 z-0 object-cover w-full h-full"
+            src={bg}
+            alt=""
+            height={360}
+            aria-hidden
+          />
+          <AccordionItem
+            class="rounded-3xl relative bg-reef-200 p-4 transition-all duration-300 ease-in-out block"
+            value={item.value}
+          >
+            <span
+              class="font-bold text-reef-950 text-left text-base"
+              slot="header"
+            >
+              {item.question}
+            </span>
+            <div
+              class="rounded-full bg-stromboli-700 size-8 transition-transform"
+              data-icon
+              slot="icon"
+            >
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 25 24"
+                class="fill-stromboli-50"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M8.07699 8.58008L12.667 13.1701L17.257 8.58008L18.667 10.0001L12.667 16.0001L6.66699 10.0001L8.07699 8.58008Z" />
+              </svg>
+            </div>
+            <p class="text-reef-800 pt-4">{item.answer}</p>
+          </AccordionItem>
+        </div>
+      ))
+    }
+  </Accordion>
 </section>

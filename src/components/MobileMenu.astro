@@ -1,0 +1,72 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"div"> {
+  items: {
+    name: string;
+    href: string;
+  }[];
+}
+
+const { items, ...attributes } = Astro.props;
+---
+
+<div
+  class="fixed inset-0 z-50 bg-stromboli-700 transition-all duration-300 data-[state=open]:opacity-100 data-[state=open]:pointer-events-auto data-[state=open]:translate-x-0 data-[state=closed]:opacity-0 data-[state=closed]:pointer-events-none data-[state=closed]:translate-x-full"
+  {...attributes}
+>
+  <button
+    data-close-button
+    class="absolute z-10 left-4 top-8 size-8 flex items-center justify-center rounded-full bg-reef-200"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="size-6"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M6 18L18 6M6 6l12 12"></path>
+    </svg>
+  </button>
+  <div class="grid relative px-4 pt-28">
+    <ul class="flex flex-col gap-8 text-stromboli-50">
+      {
+        items.map((item) => (
+          <li class="text-3xl">
+            <a data-link href={item.href}>
+              {item.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <a
+      href="#contact"
+      class="font-semibold mt-8 w-full bg-reef-200 px-6 py-3 text-stromboli-700 text-center rounded-3xl"
+    >
+      Оставить заявку
+    </a>
+  </div>
+</div>
+
+<script>
+  const menu = document.querySelector("[data-menu]");
+  const closeButton = document.querySelector("[data-close-button]");
+  const links = document.querySelectorAll("[data-link]");
+
+  closeButton.addEventListener("click", () => {
+    menu.setAttribute("data-state", "closed");
+  });
+
+  links.forEach((link) => {
+    link.addEventListener("click", () => {
+      menu.setAttribute("data-state", "closed");
+    });
+  });
+</script>

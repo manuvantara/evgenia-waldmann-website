@@ -1,26 +1,30 @@
 ---
-import type AccordionItem from "./AccordionItem.astro";
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"div"> {}
+
+const { ...attrs } = Astro.props;
 ---
 
-<accordion-group>
+<accordion-group {...attrs}>
   <slot />
 </accordion-group>
 
 <script>
+  // We don't need a controller for now, since the requirements are simple
   const ACCORDION_ITEM_SELECTOR = "accordion-item";
 
+  // TODO: add support for aligning based on largest item
+
   class AccordionGroup extends HTMLElement implements CustomElement {
-    private _accordions: NodeListOf<HTMLElement>;
+    private _accordions!: NodeListOf<HTMLElement>;
 
     constructor() {
       super();
-
-      this._accordions = this._queryAccordions();
     }
 
     connectedCallback() {
-      console.log("Custom element added to page.");
-      console.log(this._accordions, "accordions");
+      this._accordions = this._queryAccordions();
     }
 
     disconnectedCallback() {
@@ -36,7 +40,9 @@ import type AccordionItem from "./AccordionItem.astro";
       oldValue: string | null,
       newValue: string,
     ) {
-      console.log(`Attribute ${name} has changed.`);
+      if (name === "class") {
+        this.classList.value = newValue;
+      }
     }
 
     private _queryAccordions() {

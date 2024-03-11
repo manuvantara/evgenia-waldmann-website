@@ -3,11 +3,21 @@ import { Image } from "astro:assets";
 import image from "../assets/about-evgenia-waldmann.jpg";
 ---
 
-<section class="container py-24 flex gap-16 items-start text-stromboli-900" id="about-me">
+<section
+  class="container py-24 flex gap-16 items-start text-stromboli-900 px-4"
+  id="about-me"
+>
   <div>
-    <h3 class="font-extrabold text-5xl">
+    <h2 class="font-extrabold text-4xl md:text-5xl">
       Я мастер счастливой жизни Евгения Вальдманн!
-    </h3>
+    </h2>
+    <Image
+      class="rounded-3xl mt-8 lg:hidden block"
+      src={image}
+      alt="Evgenia Waldmann"
+      width={532}
+      height={532}
+    />
     <div class="grid gap-7 mt-8 font-medium text-lg">
       <p>
         Я дипломированный психолог, гипнотерапевт, семейный терапевт, член
@@ -78,7 +88,7 @@ import image from "../assets/about-evgenia-waldmann.jpg";
     </div>
   </div>
   <Image
-    class="rounded-3xl sticky top-0"
+    class="rounded-3xl sticky top-0 hidden lg:block"
     src={image}
     alt="Evgenia Waldmann"
     width={532}

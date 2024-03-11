@@ -1,54 +1,90 @@
 ---
 import Accordion from "./Accordion.astro";
 import AccordionItem from "./AccordionItem.astro";
+
+const programItems = [
+  {
+    value: "first",
+    header: "Быстрый анализ ситуации и подбор инструментов",
+    content: `Мой подход объединяет обширный опыт и владение многочисленными
+            терапевтическими методиками, что позволяет быстро выявить корни
+            проблем и адаптировать эффективные стратегии лечения индивидуально
+            для каждого клиента.`,
+  },
+  {
+    value: "second",
+    header: "Авторская терапия с эмпатией и вдумчивостью",
+    content: `Регрессивный гипноз помогает обнаружить и лечить прошлые травмы, безопасен при использовании опытным специалистом. Эффективен для решения психологических проблем и нацелен на результат каждого отдельного клиента.`,
+  },
+  {
+    value: "third",
+    header: "Безопасность и подтвержденная эффективность методик",
+    content: `На этапе диагностики я устанавливаю доверительный контакт, выявляю проблемы и вместе с клиентом разрабатываю персональный план терапии. Все сеансы проходят онлайн, что позволяет моим клиентам оставаться в привычной для них обстановке и повышает эффективность нашей совместной работы.`,
+  },
+  {
+    value: "fourth",
+    header: "Диагностика и планирование индивидуальной терапии",
+    content: `Во время сеанса, длительностью до 2,5 часов, мои клиенты находятся в расслабленном состоянии, работая с глубинными воспоминаниями через подсознание. Моя программа рассчитана на 8 сеансов, с регулярностью 1-2 раза в неделю, что обеспечивает глубокую и эффективную работу. Сеанс проходит в удобной для Вас форме из любой точки мира по WhatsApp, Scype или Zoom.`,
+  },
+  {
+    value: "fifth",
+    header: "Проведение сеанса и корректировка терапии",
+    content: `Я помогаю клиентам применять полученные навыки в повседневной жизни, что позволяет не только закрепить результаты терапии, но и построить новую реальность. Весь процесс работы с подсознанием абсолютно безопасен, и клиенты остаются в полном сознании, чувствуя себя после сеанса отдохнувшими и полными сил.`,
+  },
+  {
+    value: "sixth",
+    header: "Закрепление результата и оценка прогресса",
+    content: `Уже после первого сеанса мои клиенты замечают значительные положительные изменения в своем состоянии. Моя цель — не только достичь желаемого результата, но и обучить клиентов навыкам, которые позволят им создать счастливую и гармоничную жизнь на многие годы вперед.`,
+  },
+];
 ---
 
-<section class="bg-stromboli-700 py-24 rounded-[128px]" id="program">
-  <div class="container">
-    <h3 class="font-extrabold text-5xl text-stromboli-50 text-center">
+<section
+  class="bg-stromboli-700 max-w-[1440px] mx-auto py-24 md:rounded-[128px]"
+  id="program"
+>
+  <div class="container px-4">
+    <h2
+      class="font-extrabold text-4xl md:text-5xl text-stromboli-50 md:text-center"
+    >
       Моя авторская целительная программа “Перезагрузка: возвращение истинного
       себя”
-    </h3>
-    <div class="mt-16 grid grid-cols-3 gap-8">
-      <Accordion>
-        <AccordionItem value="first">
-          <span
-            class="font-bold text-stromboli-50 text-left text-base"
-            slot="header">Быстрый анализ ситуации и подбор инструментов</span
+    </h2>
+
+    <Accordion
+      class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+    >
+      {
+        programItems.map((item) => (
+          <AccordionItem
+            class="rounded-3xl bg-stromboli-600 p-4 transition-all duration-300 ease-in-out flex flex-col"
+            value={item.value}
           >
-          <div class="rounded-full bg-reef-200 size-8" data-icon slot="icon">
-            <svg
-              width="32"
-              height="32"
-              viewBox="0 0 25 24"
-              class="fill-stromboli-700 transition-transform"
-              xmlns="http://www.w3.org/2000/svg"
+            <span
+              class="font-bold text-stromboli-50 text-left text-base"
+              slot="header"
             >
-              <path
-                d="M8.07699 8.58008L12.667 13.1701L17.257 8.58008L18.667 10.0001L12.667 16.0001L6.66699 10.0001L8.07699 8.58008Z"
-              ></path>
-            </svg>
-          </div>
-          <p>
-            Мой девиз: каждый сам Творец своей жизни! Все в твоих руках! Нет
-            ничего невозможного! Главное желание и стремление!
-          </p>
-        </AccordionItem>
-        <AccordionItem value="first">
-          <span slot="header">Перезагрузка: возвращение истинного себя</span>
-          <p>
-            Мой девиз: каждый сам Творец своей жизни! Все в твоих руках! Нет
-            ничего невозможного! Главное желание и стремление!
-          </p>
-        </AccordionItem>
-        <AccordionItem value="first">
-          <span slot="header">Перезагрузка: возвращение истинного себя</span>
-          <p>
-            Мой девиз: каждый сам Творец своей жизни! Все в твоих руках! Нет
-            ничего невозможного! Главное желание и стремление!
-          </p>
-        </AccordionItem>
-      </Accordion>
-    </div>
+              {item.header}
+            </span>
+            <div
+              class="rounded-full bg-reef-200 size-8 transition-transform"
+              data-icon
+              slot="icon"
+            >
+              <svg
+                width="32"
+                height="32"
+                viewBox="0 0 25 24"
+                class="fill-stromboli-700"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M8.07699 8.58008L12.667 13.1701L17.257 8.58008L18.667 10.0001L12.667 16.0001L6.66699 10.0001L8.07699 8.58008Z" />
+              </svg>
+            </div>
+            <p class="text-stromboli-200 pt-4">{item.content}</p>
+          </AccordionItem>
+        ))
+      }
+    </Accordion>
   </div>
 </section>
