@@ -1,11 +1,11 @@
 ---
-import ContactButton from "./ContactButton.astro";
+import Button from "./Button.astro";
 import { Image } from "astro:assets";
 import heroImage from "../assets/hero.png";
 ---
 
 <div class="mx-auto max-w-[1440px] bg-stromboli-700 lg:rounded-b-[128px]">
-  <div class="container relative px-4">
+  <div class="container relative px-4 lg:px-0">
     <div class="flex flex-col items-end lg:flex-row">
       <div class="grid items-start pb-16 pt-14 md:pt-20">
         <h1 class="max-w-2xl text-4xl font-bold text-stromboli-50 md:text-6xl">
@@ -20,7 +20,7 @@ import heroImage from "../assets/hero.png";
           <p class="mt-6">— Евгения Вальдманн, психолог</p>
         </div>
 
-        <ContactButton />
+        <Button class="mt-12"> Записаться на консультацию </Button>
       </div>
       <Image
         class="relative object-scale-down"

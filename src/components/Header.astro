@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import MobileMenu from "./MobileMenu.astro";
-import logo from "../assets/logo.svg";
+import Button from "./Button.astro";
 
 const items = [
   {
@@ -29,8 +29,11 @@ const items = [
   class="sticky top-0 z-50 mx-auto max-w-[1440px] bg-stromboli-700 px-4 pb-8 pt-6 lg:data-[scrolled=true]:rounded-b-[128px]"
 >
   <div class="container flex items-center justify-between">
-    <Image src={logo} alt="Logo" height={32} loading="eager" />
-    <nav class="hidden rounded-3xl bg-stromboli-600 px-8 py-4 lg:block">
+    <!-- TODO: Center navbar -->
+    <Image src="/logo.svg" alt="Logo" width={60} height={48} loading="eager" />
+    <nav
+      class="hidden h-12 rounded-3xl bg-stromboli-600 px-8 py-[15px] lg:block"
+    >
       <ul class="flex gap-[42px] text-sm font-semibold text-stromboli-100">
         {
           items.map((item) => (
@@ -42,16 +45,13 @@ const items = [
       </ul>
     </nav>
 
-    <a
-      href="#contact"
-      class="hidden rounded-3xl border border-reef-200 px-6 py-3 font-semibold text-reef-200 transition-all duration-300 hover:bg-reef-200 hover:text-stromboli-700 lg:block"
-    >
+    <Button href="#contact" intent="outline" class="hidden lg:flex">
       Оставить заявку
-    </a>
+    </Button>
 
     <button
       data-menu-button
-      class="block size-8 fill-stromboli-50 lg:hidden"
+      class="block size-8 fill-reef-200 lg:hidden"
       aria-label="Menu"
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
