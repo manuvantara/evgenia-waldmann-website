@@ -5,13 +5,17 @@ import heroImage from "../assets/hero.png";
 ---
 
 <div class="mx-auto max-w-[1440px] bg-stromboli-700 lg:rounded-b-[128px]">
-  <div class="container relative px-4 lg:px-0">
-    <div class="flex flex-col items-end lg:flex-row">
-      <div class="grid items-start pb-16 pt-14 md:pt-20">
+  <div class="container relative">
+    <div class="flex flex-col items-center lg:flex-row lg:items-start">
+      <div
+        class="grid items-center pb-16 pt-14 text-left sm:text-center md:pt-20 lg:items-start lg:text-left"
+      >
         <h1 class="max-w-2xl text-4xl font-bold text-stromboli-50 md:text-6xl">
           Жизнь без травм: результат после первого сеанса.
         </h1>
-        <div class="mt-8 max-w-lg text-lg font-medium text-stromboli-200">
+        <div
+          class="mx-auto mt-8 max-w-lg text-left text-lg font-medium text-stromboli-200 sm:text-center lg:mx-0 lg:text-left"
+        >
           <i
             >“Мой девиз: каждый сам Творец своей жизни! Все в твоих руках! Нет
             ничего невозможного! Главное желание и стремление!”</i
@@ -20,7 +24,9 @@ import heroImage from "../assets/hero.png";
           <p class="mt-6">— Евгения Вальдманн, психолог</p>
         </div>
 
-        <Button class="mt-12"> Записаться на консультацию </Button>
+        <Button class="mx-0 mt-12 sm:mx-auto lg:mx-0">
+          Записаться на консультацию
+        </Button>
       </div>
       <Image
         class="relative object-scale-down"
