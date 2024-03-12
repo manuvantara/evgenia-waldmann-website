@@ -1,4 +1,5 @@
 ---
+import { YouTube } from "@astro-community/astro-embed-youtube";
 const reviewsCount = 6;
 ---
 
@@ -13,16 +14,10 @@ const reviewsCount = 6;
     <div class="mt-16 grid grid-cols-1 gap-x-[30px] gap-y-11 md:grid-cols-2">
       {
         Array.from({ length: reviewsCount }).map(() => (
-          <iframe
+          <YouTube
             class="rounded-3xl object-cover"
-            loading="lazy"
-            width="100%"
-            height="300"
-            src="https://www.youtube-nocookie.com/embed/0JUN9aDxVmI?si=6d4QTe1VphumwB1R"
+            id="0JUN9aDxVmI"
             title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
           />
         ))
       }
