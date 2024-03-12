@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import Accordion from "./Accordion.astro";
+import bg from "../assets/program-card-bg.jpg";
 import AccordionItem from "./AccordionItem.astro";
 
 const programItems = [
@@ -43,7 +45,7 @@ const programItems = [
   class="mx-auto max-w-[1440px] scroll-mt-24 bg-stromboli-700 py-24 md:rounded-[128px]"
   id="program"
 >
-  <div class="container px-4">
+  <div class="container px-4 lg:px-0">
     <h2
       class="text-4xl font-extrabold text-stromboli-50 md:text-center md:text-5xl"
     >
@@ -56,33 +58,43 @@ const programItems = [
     >
       {
         programItems.map((item) => (
-          <AccordionItem
-            class="flex flex-col rounded-3xl bg-stromboli-600 p-4 transition-all duration-300 ease-in-out"
-            value={item.value}
-          >
-            <span
-              class="text-left text-base font-bold text-stromboli-50"
-              slot="header"
+          <div class="relative min-h-[360px] flex overflow-hidden rounded-3xl">
+            <Image
+              class="absolute z-0 inset-0 rounded-3xl h-full w-full object-cover"
+              height={360}
+              src={bg}
+              alt=""
+              aria-hidden
+            />
+            <AccordionItem
+              class="flex relative self-end flex-col rounded-3xl bg-stromboli-600 p-4 transition-all duration-300 ease-in-out"
+              value={item.value}
+              takeFullHeight
             >
-              {item.header}
-            </span>
-            <div
-              class="size-8 rounded-full bg-reef-200 transition-transform"
-              data-icon
-              slot="icon"
-            >
-              <svg
-                width="32"
-                height="32"
-                viewBox="0 0 25 24"
-                class="fill-stromboli-700"
-                xmlns="http://www.w3.org/2000/svg"
+              <span
+                class="text-left text-base font-bold text-stromboli-50"
+                slot="header"
               >
-                <path d="M8.07699 8.58008L12.667 13.1701L17.257 8.58008L18.667 10.0001L12.667 16.0001L6.66699 10.0001L8.07699 8.58008Z" />
-              </svg>
-            </div>
-            <p class="pt-4 text-stromboli-200">{item.content}</p>
-          </AccordionItem>
+                {item.header}
+              </span>
+              <div
+                class="size-8 rounded-full bg-reef-200 transition-transform"
+                data-icon
+                slot="icon"
+              >
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 25 24"
+                  class="fill-stromboli-700"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M8.07699 8.58008L12.667 13.1701L17.257 8.58008L18.667 10.0001L12.667 16.0001L6.66699 10.0001L8.07699 8.58008Z" />
+                </svg>
+              </div>
+              <p class="pt-4 text-stromboli-200">{item.content}</p>
+            </AccordionItem>
+          </div>
         ))
       }
     </Accordion>

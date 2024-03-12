@@ -51,12 +51,10 @@ const faqItems = [
   <h2 class="text-4xl font-extrabold text-stromboli-900 md:text-5xl">
     Часто задаваемые вопросы
   </h2>
-  <Accordion
-    class="mt-16 grid grid-cols-1 items-end gap-8 md:grid-cols-2 lg:grid-cols-3"
-  >
+  <Accordion class="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
     {
       faqItems.map((item) => (
-        <div class="relative min-h-[360px] overflow-hidden p-4">
+        <div class="relative flex min-h-[360px] overflow-hidden p-4">
           <Image
             class="absolute inset-0 z-0 h-full w-full rounded-3xl object-cover"
             src={bg}
@@ -65,7 +63,7 @@ const faqItems = [
             aria-hidden
           />
           <AccordionItem
-            class="relative block rounded-3xl bg-reef-200 p-4 transition-all duration-300 ease-in-out"
+            class="relative block self-end rounded-3xl bg-reef-200 p-4 transition-all duration-300 ease-in-out"
             value={item.value}
           >
             <span

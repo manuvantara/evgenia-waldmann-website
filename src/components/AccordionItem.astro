@@ -17,7 +17,7 @@ const triggerId = `accordion-${value}-id-${Math.random().toString(36).slice(2)}`
     <button
       type="button"
       aria-expanded="true"
-      class="flex justify-between gap-4 transition-all [&[data-state=open]>[data-icon]]:rotate-180"
+      class="flex justify-between items-center gap-4 transition-all [&[data-state=closed]>[data-icon]]:rotate-180"
       aria-controls={panelId}
       data-value={value}
       data-state="closed"
