@@ -69,6 +69,35 @@
   </div>
 </section>
 
+<script>
+  const form = document.querySelector("form");
+
+  function handleSubmit(event: SubmitEvent) {
+    event.preventDefault();
+
+    const target = event.target as HTMLFormElement;
+    const formData = new FormData(target);
+
+    fetch(target.action, {
+        method: target.method,
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            window.location.href = '/success';
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+  }
+
+  form?.addEventListener("submit", handleSubmit);
+</script>
+
 <style>
   [data-form-control]:focus-within:not(:has(button:focus-visible)) {
     @apply ring-4 ring-sun-600;
