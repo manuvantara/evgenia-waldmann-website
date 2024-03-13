@@ -5,7 +5,7 @@ import Button from "./Button.astro";
 ---
 
 <section
-  class="relative mx-auto max-w-[1440px] overflow-hidden py-24 rounded-[32px] lg:rounded-[64px] xl:rounded-[128px]"
+  class="relative mx-auto max-w-[1440px] overflow-hidden rounded-[32px] py-12 sm:py-24 lg:rounded-[64px] xl:rounded-[128px]"
 >
   <Image
     class="absolute inset-0 z-0 h-full w-full object-cover"
@@ -21,13 +21,15 @@ import Button from "./Button.astro";
       здоровая, успешная, счастливая и любимая!
     </h3>
     <p
-      class="mx-auto mt-6 max-w-[720px] text-lg font-medium text-stromboli-200 md:text-center"
+      class="mx-auto mt-8 max-w-[720px] text-lg font-medium text-stromboli-200 md:text-center"
     >
       Я помогла сотням людей, таких же, как Вы, и теперь перед Вами стоит выбор
       — готовы ли Вы к изменениям в своей жизни, чтобы стать здоровыми,
       счастливыми и наслаждаться каждым моментом жизни? Гарантированный
       результат, который можно проверить уже после первого сеанса!
     </p>
-    <Button href="#contact" class="mx-auto mt-8">Записаться на консультацию</Button>
+    <Button href="#contact" class="mx-0 mt-8 md:mx-auto"
+      >Записаться на консультацию</Button
+    >
   </div>
 </section>
