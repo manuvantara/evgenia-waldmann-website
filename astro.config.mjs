@@ -22,9 +22,10 @@ export default defineConfig({
       // Set useCdn to false if you're building statically.
       useCdn: false,
       studioBasePath: "/admin",
+      apiVersion: "2023-03-20",
     }),
     react(),
   ],
-  output: "server",
+  output: "hybrid",
   adapter: netlify(),
 });
