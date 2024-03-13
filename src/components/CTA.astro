@@ -5,13 +5,15 @@ import Button from "./Button.astro";
 ---
 
 <section
-  class="relative mx-auto max-w-[1440px] overflow-hidden rounded-r-[32px] pb-12 pt-16 sm:py-24 lg:rounded-[64px] xl:rounded-[128px]"
+  class="relative z-10 mx-auto max-w-[1440px] overflow-hidden rounded-r-[32px] bg-stromboli-700 pb-12 pt-16 sm:py-24 lg:rounded-[64px] xl:rounded-[128px]"
+  id="cta"
 >
   <Image
-    class="absolute inset-0 z-0 h-full w-full object-cover"
+    class="absolute inset-0 z-0 h-full w-full object-cover transition-all duration-200"
     src={ctaBg}
     alt=""
     aria-hidden
+    id="cta-bg"
   />
   <div class="container relative">
     <h3

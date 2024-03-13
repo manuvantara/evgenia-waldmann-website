@@ -77,10 +77,19 @@ const items = [
   const menu = document.querySelector("[data-menu]");
   const heroSection = document.querySelector<HTMLElement>("#hero");
   const programSection = document.querySelector<HTMLElement>("#program");
+  const ctaSection = document.querySelector<HTMLElement>("#cta");
+  const ctaBackgroundImage = document.querySelector<HTMLElement>("#cta-bg");
   const contactSection = document.querySelector<HTMLElement>("#contact");
 
   function handleScroll() {
-    if (!header || !heroSection || !programSection || !contactSection) {
+    if (
+      !header ||
+      !heroSection ||
+      !programSection ||
+      !ctaSection ||
+      !ctaBackgroundImage ||
+      !contactSection
+    ) {
       throw new Error("One of the elements not found");
     }
 
@@ -88,6 +97,7 @@ const items = [
 
     const heroRect = heroSection.getBoundingClientRect();
     const programRect = programSection.getBoundingClientRect();
+    const ctaRect = ctaSection.getBoundingClientRect();
     const contactRect = contactSection.getBoundingClientRect();
 
     if (
@@ -108,6 +118,15 @@ const items = [
       header.classList.add("!rounded-b-none");
     } else if (
       !(
+        headerRect.bottom < ctaRect.top ||
+        headerRect.top > ctaRect.bottom - headerRect.height * 2
+      )
+    ) {
+      ctaSection.classList.add("!rounded-t-none");
+      ctaBackgroundImage.classList.add("!opacity-0");
+      header.classList.add("!rounded-b-none");
+    } else if (
+      !(
         headerRect.bottom < contactRect.top ||
         headerRect.top > contactRect.bottom - headerRect.height * 2
       )
@@ -117,8 +136,13 @@ const items = [
     } else {
       heroSection.classList.remove("!rounded-t-none");
       programSection.classList.remove("!rounded-t-none");
+      ctaSection.classList.remove("!rounded-t-none");
       contactSection.classList.remove("!rounded-t-none");
       header.classList.remove("!rounded-b-none");
+    }
+
+    if (headerRect.bottom < ctaRect.top) {
+      ctaBackgroundImage.classList.remove("!opacity-0");
     }
   }
 
