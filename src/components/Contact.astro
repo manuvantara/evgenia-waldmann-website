@@ -73,26 +73,28 @@ export const prerender = true;
 </section>
 
 <script>
-  const handleSubmit = (event) => {
-  event.preventDefault();
+  const form = document.querySelector("form");
 
-  const myForm = event.target;
-  const formData = new FormData(myForm);
+  if (!form) {
+    console.error("Form not found");
+    return;
+  }
 
-  fetch("/", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    // @ts-expect-error
-    body: new URLSearchParams(formData).toString(),
-  })
-  // Redirect to success page
-    .then(() => window.location.href = "/success")
-    .catch((error) => alert(error));
-};
+  const handleSubmit = (event: SubmitEvent) => {
+    event.preventDefault();
 
-  const form = document
-    .querySelector("form")
+    const formData = new FormData(form);
 
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      // @ts-expect-error
+      body: new URLSearchParams(formData).toString(),
+    })
+      // Redirect to success page
+      .then(() => (window.location.href = "/success"))
+      .catch((error) => alert(error));
+  };
 
   form.addEventListener("submit", handleSubmit);
 </script>
