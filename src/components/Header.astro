@@ -25,13 +25,20 @@ const items = [
 
 <header
   data-header
-  class="sticky top-0 z-50 mx-auto max-w-[1440px] bg-stromboli-700 pb-8 pt-6 transition-all duration-200 xl:rounded-b-[128px]"
+  class="sticky top-0 z-50 mx-auto max-w-[1440px] rounded-b-[16px] bg-stromboli-700 pb-8 pt-6 transition-all duration-200 lg:rounded-b-[64px] xl:rounded-b-[128px]"
 >
   <div class="container flex items-center justify-between">
     <!-- TODO: Center navbar -->
-    <Image src="/logo.svg" alt="Logo" width={60} height={48} loading="eager" />
+    <Image
+      class="h-8 w-10 xl:h-12 xl:w-[60px]"
+      src="/logo.svg"
+      alt="Logo"
+      width={60}
+      height={48}
+      loading="eager"
+    />
     <nav
-      class="hidden h-12 rounded-3xl bg-stromboli-600 px-8 py-[15px] xl:block"
+      class="hidden h-12 rounded-3xl bg-stromboli-600 px-8 py-[15px] lg:block"
     >
       <ul class="flex gap-[42px] text-sm font-semibold text-stromboli-100">
         {
@@ -44,13 +51,13 @@ const items = [
       </ul>
     </nav>
 
-    <Button href="#contact" intent="outline" class="hidden xl:flex">
+    <Button href="#contact" intent="outline" class="hidden lg:flex">
       Оставить заявку
     </Button>
 
     <button
       data-menu-button
-      class="block size-8 fill-reef-200 xl:hidden"
+      class="block size-8 fill-reef-200 lg:hidden"
       aria-label="Menu"
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
@@ -115,9 +122,7 @@ const items = [
     }
   }
 
-  if (window.matchMedia("(min-width: 1280px)").matches) {
-    window.addEventListener("scroll", handleScroll);
-  }
+  window.addEventListener("scroll", handleScroll);
 
   menuButton?.addEventListener("click", () => {
     menu?.setAttribute("data-state", "open");
