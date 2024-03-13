@@ -1,6 +1,13 @@
 ---
-import { YouTube } from "@astro-community/astro-embed-youtube";
-const reviewsCount = 6;
+import { YouTube } from '@astro-community/astro-embed-youtube';
+import { sanityClient } from 'sanity:client';
+
+export const prerender = false;
+
+const reviews = await sanityClient.fetch(
+  // Do not fetch unpublished reviews
+  `*[_type == "review"] | order(_createdAt desc)`
+);
 ---
 
 <section
@@ -15,11 +22,12 @@ const reviewsCount = 6;
       class="mt-8 grid grid-cols-1 gap-4 sm:mt-16 sm:gap-x-[30px] sm:gap-y-11 md:grid-cols-2"
     >
       {
-        Array.from({ length: reviewsCount }).map(() => (
+        // There are even more properties from the Sanity API, but we don't need them
+        reviews.map((review: { title: string; url: string }) => (
           <YouTube
             class="rounded-3xl object-cover"
-            id="0JUN9aDxVmI"
-            title="YouTube video player"
+            id={review.url}
+            title={review.title || 'YouTube video'}
           />
         ))
       }
