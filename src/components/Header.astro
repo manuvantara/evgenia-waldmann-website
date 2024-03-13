@@ -25,14 +25,13 @@ const items = [
 
 <header
   data-header
-  data-scrolled="false"
-  class="sticky top-0 z-50 mx-auto max-w-[1440px] bg-stromboli-700 pb-8 pt-6 lg:data-[scrolled=true]:rounded-b-[128px]"
+  class="sticky top-0 z-50 mx-auto max-w-[1440px] bg-stromboli-700 pb-8 pt-6 transition-all duration-200 xl:rounded-b-[128px]"
 >
   <div class="container flex items-center justify-between">
     <!-- TODO: Center navbar -->
     <Image src="/logo.svg" alt="Logo" width={60} height={48} loading="eager" />
     <nav
-      class="hidden h-12 rounded-3xl bg-stromboli-600 px-8 py-[15px] lg:block"
+      class="hidden h-12 rounded-3xl bg-stromboli-600 px-8 py-[15px] xl:block"
     >
       <ul class="flex gap-[42px] text-sm font-semibold text-stromboli-100">
         {
@@ -45,13 +44,13 @@ const items = [
       </ul>
     </nav>
 
-    <Button href="#contact" intent="outline" class="hidden lg:flex">
+    <Button href="#contact" intent="outline" class="hidden xl:flex">
       Оставить заявку
     </Button>
 
     <button
       data-menu-button
-      class="block size-8 fill-reef-200 lg:hidden"
+      class="block size-8 fill-reef-200 xl:hidden"
       aria-label="Menu"
     >
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960">
@@ -66,23 +65,59 @@ const items = [
 </header>
 
 <script>
-  const header = document.querySelector("[data-header]");
+  const header = document.querySelector<HTMLElement>("[data-header]");
   const menuButton = document.querySelector("[data-menu-button]");
   const menu = document.querySelector("[data-menu]");
+  const heroSection = document.querySelector<HTMLElement>("#hero");
+  const programSection = document.querySelector<HTMLElement>("#program");
+  const contactSection = document.querySelector<HTMLElement>("#contact");
 
-  if (!header || !menuButton || !menu) {
-    throw new Error("Header, menu button or menu not found");
+  function handleScroll() {
+    if (!header || !heroSection || !programSection || !contactSection) {
+      throw new Error("One of the elements not found");
+    }
+
+    const headerRect = header.getBoundingClientRect();
+
+    const heroRect = heroSection.getBoundingClientRect();
+    const programRect = programSection.getBoundingClientRect();
+    const contactRect = contactSection.getBoundingClientRect();
+
+    if (
+      !(
+        headerRect.bottom < heroRect.top ||
+        headerRect.top > heroRect.bottom - headerRect.height * 2
+      )
+    ) {
+      heroSection.classList.add("!rounded-t-none");
+      header.classList.add("!rounded-b-none");
+    } else if (
+      !(
+        headerRect.bottom < programRect.top ||
+        headerRect.top > programRect.bottom - headerRect.height * 2
+      )
+    ) {
+      programSection.classList.add("!rounded-t-none");
+      header.classList.add("!rounded-b-none");
+    } else if (
+      !(
+        headerRect.bottom < contactRect.top ||
+        headerRect.top > contactRect.bottom - headerRect.height * 2
+      )
+    ) {
+      contactSection.classList.add("!rounded-t-none");
+      header.classList.add("!rounded-b-none");
+    } else {
+      heroSection.classList.remove("!rounded-t-none");
+      programSection.classList.remove("!rounded-t-none");
+      contactSection.classList.remove("!rounded-t-none");
+      header.classList.remove("!rounded-b-none");
+    }
   }
 
-  const { height } = header?.getBoundingClientRect();
-
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > height) {
-      header?.setAttribute("data-scrolled", "true");
-    } else {
-      header?.setAttribute("data-scrolled", "false");
-    }
-  });
+  if (window.matchMedia("(min-width: 1280px)").matches) {
+    window.addEventListener("scroll", handleScroll);
+  }
 
   menuButton?.addEventListener("click", () => {
     menu?.setAttribute("data-state", "open");

@@ -17,47 +17,49 @@ const { items, ...attributes } = Astro.props;
   class="fixed inset-0 z-50 bg-stromboli-700 transition-all duration-300 data-[state=closed]:pointer-events-none data-[state=open]:pointer-events-auto data-[state=closed]:-translate-y-full data-[state=open]:translate-y-0 data-[state=closed]:opacity-0 data-[state=open]:opacity-100"
   {...attributes}
 >
-  <div class="flex items-center justify-between px-4 pt-6">
-    <Image src="/logo.svg" alt="Logo" width={60} height={48} />
-    <button
-      data-close-button
-      class="flex size-8 items-center justify-center rounded-full bg-reef-200 fill-stromboli-700 text-stromboli-700"
-      aria-label="Close menu"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="currentColor"
-        class="size-6"
+  <div class="container">
+    <div class="flex items-center justify-between pt-6">
+      <Image src="/logo.svg" alt="Logo" width={60} height={48} />
+      <button
+        data-close-button
+        class="flex size-8 items-center justify-center rounded-full bg-reef-200 fill-stromboli-700 text-stromboli-700"
+        aria-label="Close menu"
       >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M6 18L18 6M6 6l12 12"></path>
-      </svg>
-    </button>
-  </div>
-  <div class="relative grid px-4 pt-20">
-    <ul class="flex flex-col gap-8 text-stromboli-50">
-      {
-        items.map((item) => (
-          <li class="text-3xl font-semibold">
-            <a data-link href={item.href}>
-              {item.name}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="relative grid pt-20">
+      <ul class="flex flex-col gap-8 text-stromboli-50">
+        {
+          items.map((item) => (
+            <li class="text-3xl font-semibold">
+              <a data-link href={item.href}>
+                {item.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
 
-    <a
-      data-link
-      href="#contact"
-      class="mt-8 w-full rounded-3xl bg-reef-200 px-6 py-3 text-center font-semibold text-stromboli-700"
-    >
-      Оставить заявку
-    </a>
+      <a
+        data-link
+        href="#contact"
+        class="mt-8 w-full rounded-3xl bg-reef-200 px-6 py-3 text-center font-semibold text-stromboli-700"
+      >
+        Оставить заявку
+      </a>
+    </div>
   </div>
 </div>
 
