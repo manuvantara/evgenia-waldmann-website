@@ -1,7 +1,41 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import bg from '../assets/evgenia-waldmann-grass.jpg';
 ---
 
 <Layout title="Success">
-  <h1>Success</h1>
+  <div
+    class="relative grid h-screen w-screen place-items-center overflow-x-hidden bg-stromboli-700/80"
+  >
+    <Image
+      fetchpriority="high"
+      loading="eager"
+      src={bg}
+      alt=""
+      aria-hidden
+      class="absolute inset-0 -z-10 h-full w-full object-cover object-top"
+    />
+    <div class="container grid items-center justify-center gap-8">
+      <h1 class="text-center text-5xl font-extrabold text-stromboli-50">
+        Приветствую вас на новом этапе вашего путешествия к здоровью и счастью!
+        Ваша заявка успешно отправлена и я скоро свяжусь с Вами!
+      </h1>
+      <div
+        class="mx-auto grid max-w-[720px] gap-7 text-center text-lg text-stromboli-200"
+      >
+        <p>
+          Приветствую на новом этапе к здоровью и счастью! Ваш выбор говорит о
+          готовности к изменениям. За годы я помогла многим, и уверена в вашем
+          успехе. Первый шаг сделан — самый сложный. Гарантированные результаты
+          уже после первого сеанса мотивируют двигаться дальше.
+        </p>
+        <p>
+          Я буду рядом, поддерживая на каждом шагу к благополучию. Доверьтесь
+          процессу, и каждый день приближайтесь к счастью. Благодарю за доверие,
+          и впереди нас ждет вдохновляющее путешествие к вашему расцвету!
+        </p>
+      </div>
+    </div>
+  </div>
 </Layout>
