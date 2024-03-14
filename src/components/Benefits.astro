@@ -1,17 +1,53 @@
 ---
 import { Image } from "astro:assets";
-import image from "../assets/card-bg.jpg";
+
+import bStock1 from "../assets/stocks/benefits/b-stock-1.jpg";
+import bStock2 from "../assets/stocks/benefits/b-stock-2.jpg";
+import bStock3 from "../assets/stocks/benefits/b-stock-3.jpg";
+import bStock4 from "../assets/stocks/benefits/b-stock-4.jpg";
+import bStock5 from "../assets/stocks/benefits/b-stock-5.jpg";
+import bStock6 from "../assets/stocks/benefits/b-stock-6.jpg";
+import bStock7 from "../assets/stocks/benefits/b-stock-7.jpg";
+import bStock8 from "../assets/stocks/benefits/b-stock-8.jpg";
+import bStock9 from "../assets/stocks/benefits/b-stock-9.jpg";
 
 const benefits = [
-  "Исцелиться от психосоматических расстройств",
-  "Наладить семейные отношения",
-  "Убрать негативные убеждения и эмоции",
-  "Освободиться от детских травм",
-  "Забыть про страхи и панические атаки",
-  "Избавиться от зависимостей",
-  "Вернуть эмоциональное равновесие",
-  "Полюбить себя и повысить свою самооценку",
-  "Реализовать свой потенциал и достичь гармонии",
+  {
+    text: "Исцелиться от психосоматических расставств",
+    image: bStock1,
+  },
+  {
+    text: "Наладить семейные отношения",
+    image: bStock2,
+  },
+  {
+    text: "Убрать негативные убеждения и эмоции",
+    image: bStock3,
+  },
+  {
+    text: "Освободиться от детских травм",
+    image: bStock4,
+  },
+  {
+    text: "Забыть про страхи и панические атаки",
+    image: bStock5,
+  },
+  {
+    text: "Избавиться от зависимостей",
+    image: bStock6,
+  },
+  {
+    text: "Вернуть эмоциональное равновесие",
+    image: bStock7,
+  },
+  {
+    text: "Полюбить себя и повысить свою самооценку",
+    image: bStock8,
+  },
+  {
+    text: "Реализовать свой потенциал и достичь гармонии",
+    image: bStock9,
+  },
 ];
 ---
 
@@ -24,15 +60,16 @@ const benefits = [
   >
     {
       benefits.map((benefit) => (
-        <div class="group relative flex min-h-48 min-w-0 items-center justify-center overflow-hidden rounded-[32px] border border-stromboli-900 bg-reef-200 px-16 py-12 md:last:col-span-2 lg:last:col-span-1">
+        <div class="group relative flex min-h-48 min-w-0 items-center justify-center overflow-hidden rounded-[32px] border border-stromboli-900 bg-reef-200 px-16 py-12 mix-blend-multiply md:last:col-span-2 lg:last:col-span-1">
           <Image
             class="absolute z-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100"
-            src={image}
+            src={benefit.image}
             alt=""
             aria-hidden
           />
+          <div class="absolute inset-0 z-0 bg-reef-200/70" />
           <h3 class="relative text-center text-xl font-bold md:text-2xl">
-            {benefit}
+            {benefit.text}
           </h3>
         </div>
       ))

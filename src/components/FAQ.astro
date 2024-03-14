@@ -2,7 +2,13 @@
 import { Image } from "astro:assets";
 import Accordion from "./Accordion.astro";
 import AccordionItem from "./AccordionItem.astro";
-import bg from "../assets/faq-bg.jpg";
+
+import fStock1 from "../assets/stocks/faq/f-stock-1.jpg";
+import fStock2 from "../assets/stocks/faq/f-stock-2.jpg";
+import fStock3 from "../assets/stocks/faq/f-stock-3.jpg";
+import fStock4 from "../assets/stocks/faq/f-stock-4.jpg";
+import fStock5 from "../assets/stocks/faq/f-stock-5.jpg";
+// import fStock6 from '../assets/stocks/faq/f-stock-6.jpg';
 
 const faqItems = [
   {
@@ -10,36 +16,43 @@ const faqItems = [
     question: "Насколько безопасен терапевтический гипноз?",
     answer:
       "Терапевтический гипноз абсолютно безопасен. Клиент сохраняет полный контроль и осознание происходящего, находясь в состоянии придельной концентрации в процессе сеанса. По завершению клиент помнит всё, что с ним происходило, и чувствует себя бодрым и полным сил.",
+    image: fStock1,
   },
   {
     value: "second",
     question: "Насколько эффективен  терапевтический гипноз?",
     answer:
       "Гипноз доказал свою высокую эффективность, работая на уровне подсознания, где записаны все воспоминания как на жёстком диске компьютера. Задача специалиста: найти эти воспоминания и переформатировать их на положительные на уровне подсознания.",
+    image: fStock2,
   },
   {
     value: "third",
     question: "Все ли люди поддаются гипнозу?",
     answer:
       "Большинство людей восприимчивы к гипнозу, за исключением случаев тяжелых психических заболеваний или состояний опьянения. Человек регулярно попадает в трансовое состояние, которое подобно гипнозу. Например, монотонная езда на машине, когда слипаются глаза,",
+    image: fStock3,
   },
   {
     value: "fourth",
     question: "Сколько времени нужно, чтобы решить проблему через гипноз?",
     answer:
       "Продолжительность индивидуальна и может варьироваться от 4 до 10 сеансов, в зависимости от сложности и глубины проблемы.",
+    image: fStock4,
   },
   {
     value: "fifth",
     question: "Поможет ли гипнотерапия контролировать злость и агрессию?",
     answer:
       "Да, гипнотерапия эффективно помогает управлять и полностью избавляться от злости, агрессии и гнева уже с первых сеансов.",
+    image: fStock5,
   },
   {
     value: "sixth",
     question: "С какого возраста можно применять гипнотерапию у детей?",
     answer:
       "Гипнотерапию с детьми можно начинать с 3-4 лет, когда ребёнок начинает осознавать собственное “Я”, с учётом индивидуального подхода и комплексной семейной терапии. ",
+    // TODO: Add image
+    image: fStock5,
   },
 ];
 ---
@@ -53,14 +66,15 @@ const faqItems = [
   >
     {
       faqItems.map((item) => (
-        <div class="relative flex min-h-[360px] overflow-hidden p-4">
+        <div class="relative flex min-h-[370px] overflow-hidden p-4">
           <Image
             class="absolute inset-0 z-0 h-full w-full rounded-3xl object-cover"
-            src={bg}
+            src={item.image}
             alt=""
             height={360}
             aria-hidden
           />
+          <div class="absolute inset-0 z-0 rounded-3xl bg-stromboli-950/50" />
           <AccordionItem
             class="relative block self-end rounded-3xl bg-reef-200 p-4 transition-all duration-300 ease-in-out"
             value={item.value}

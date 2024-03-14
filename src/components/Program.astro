@@ -1,8 +1,14 @@
 ---
 import { Image } from "astro:assets";
 import Accordion from "./Accordion.astro";
-import bg from "../assets/program-card-bg.jpg";
 import AccordionItem from "./AccordionItem.astro";
+
+import pStock1 from "../assets/stocks/program/p-stock-1.jpg";
+import pStock2 from "../assets/stocks/program/p-stock-2.jpg";
+import pStock3 from "../assets/stocks/program/p-stock-3.jpg";
+import pStock4 from "../assets/stocks/program/p-stock-4.jpg";
+import pStock5 from "../assets/stocks/program/p-stock-5.jpg";
+import pStock6 from "../assets/stocks/program/p-stock-6.jpg";
 
 const programItems = [
   {
@@ -12,31 +18,37 @@ const programItems = [
             терапевтическими методиками, что позволяет быстро выявить корни
             проблем и адаптировать эффективные стратегии лечения индивидуально
             для каждого клиента.`,
+    image: pStock1,
   },
   {
     value: "second",
     header: "Авторская терапия с эмпатией и вдумчивостью",
     content: `Регрессивный гипноз помогает обнаружить и лечить прошлые травмы, безопасен при использовании опытным специалистом. Эффективен для решения психологических проблем и нацелен на результат каждого отдельного клиента.`,
+    image: pStock2,
   },
   {
     value: "third",
     header: "Безопасность и подтвержденная эффективность методик",
     content: `На этапе диагностики я устанавливаю доверительный контакт, выявляю проблемы и вместе с клиентом разрабатываю персональный план терапии. Все сеансы проходят онлайн, что позволяет моим клиентам оставаться в привычной для них обстановке и повышает эффективность нашей совместной работы.`,
+    image: pStock3,
   },
   {
     value: "fourth",
     header: "Диагностика и планирование индивидуальной терапии",
     content: `Во время сеанса, длительностью до 2,5 часов, мои клиенты находятся в расслабленном состоянии, работая с глубинными воспоминаниями через подсознание. Моя программа рассчитана на 8 сеансов, с регулярностью 1-2 раза в неделю, что обеспечивает глубокую и эффективную работу. Сеанс проходит в удобной для Вас форме из любой точки мира по WhatsApp, Scype или Zoom.`,
+    image: pStock4,
   },
   {
     value: "fifth",
     header: "Проведение сеанса и корректировка терапии",
     content: `Я помогаю клиентам применять полученные навыки в повседневной жизни, что позволяет не только закрепить результаты терапии, но и построить новую реальность. Весь процесс работы с подсознанием абсолютно безопасен, и клиенты остаются в полном сознании, чувствуя себя после сеанса отдохнувшими и полными сил.`,
+    image: pStock5,
   },
   {
     value: "sixth",
     header: "Закрепление результата и оценка прогресса",
     content: `Уже после первого сеанса мои клиенты замечают значительные положительные изменения в своем состоянии. Моя цель — не только достичь желаемого результата, но и обучить клиентов навыкам, которые позволят им создать счастливую и гармоничную жизнь на многие годы вперед.`,
+    image: pStock6,
   },
 ];
 ---
@@ -61,11 +73,12 @@ const programItems = [
           <div class="relative flex min-h-[360px] overflow-hidden rounded-3xl">
             <Image
               class="absolute inset-0 z-0 h-full w-full rounded-3xl object-cover"
+              src={item.image}
               height={360}
-              src={bg}
               alt=""
               aria-hidden
             />
+            <div class="absolute inset-0 z-0 rounded-3xl bg-stromboli-950/50" />
             <AccordionItem
               class="relative flex flex-col self-end rounded-3xl bg-stromboli-600 p-4 transition-all duration-300 ease-in-out"
               value={item.value}
