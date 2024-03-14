@@ -1,7 +1,12 @@
 ---
-import Button from "./Button.astro";
-import { Image } from "astro:assets";
-import heroImage from "../assets/hero.png";
+import Button from './Button.astro';
+import { Image, getImage } from 'astro:assets';
+import hero from '../assets/evgenia-waldmann.png';
+
+const optimizedImage = await getImage({
+  src: hero,
+  format: 'webp',
+});
 ---
 
 <div
@@ -9,7 +14,7 @@ import heroImage from "../assets/hero.png";
   id="hero"
 >
   <div class="container relative">
-    <div class="flex flex-col items-center lg:flex-row lg:items-end">
+    <div class="grid place-items-center lg:grid-cols-2 lg:items-end lg:gap-8">
       <div
         class="grid items-center py-12 text-left sm:text-center md:pt-20 lg:items-start lg:text-left xl:pt-36"
       >
@@ -32,11 +37,12 @@ import heroImage from "../assets/hero.png";
         </Button>
       </div>
       <Image
-        class="relative object-scale-down"
-        width={531}
-        height={564}
-        src={heroImage}
+        class="min-h-[400px] object-cover object-center lg:h-full lg:w-full"
+        src={optimizedImage.src}
+        width={optimizedImage.attributes.width}
+        height={optimizedImage.attributes.height}
         loading="eager"
+        fetchpriority="high"
         alt="Evgenia Valdmann"
       />
     </div>

@@ -13,10 +13,22 @@ import FAQ from "../components/FAQ.astro";
 import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
 
+import { getImage } from "astro:assets";
+import hero from '../assets/evgenia-waldmann.png';
+
+const optimizedImage = await getImage({
+  src: hero,
+  format: "webp",
+});
+
 export const prerender = false;
 ---
 
 <Layout title="Home">
+  <Fragment slot="head">
+    <link rel="preload" as="image" href={optimizedImage.src} />
+  </Fragment>
+
   <Header />
   <Hero />
   <Certificates />
