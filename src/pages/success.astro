@@ -4,25 +4,26 @@ import Layout from '../layouts/Layout.astro';
 import bg from '../assets/evgenia-waldmann-grass.jpg';
 ---
 
-<Layout title="Success">
+<Layout title="Ваша заявка успешно отправлена">
+  <Fragment slot="head">
+    <meta name="robots" content="noindex" />
+    <meta name="robots" content="nofollow" />
+    <meta name="robots" content="noarchive" />
+    <link rel="preload" as="image" href={bg.src} />
+  </Fragment>
+
   <div
-    class="relative grid h-screen w-screen place-items-center overflow-x-hidden bg-stromboli-700/80"
+    class="relative grid h-screen w-screen place-items-center overflow-x-hidden bg-stromboli-700/80 pb-12 pt-16"
   >
-    <Image
-      fetchpriority="high"
-      loading="eager"
-      src={bg}
-      alt=""
-      aria-hidden
-      class="absolute inset-0 -z-10 h-full w-full object-cover object-top"
-    />
     <div class="container grid items-center justify-center gap-8">
-      <h1 class="text-center text-5xl font-extrabold text-stromboli-50">
+      <h1
+        class="text-4xl font-extrabold text-stromboli-50 lg:text-center lg:text-5xl"
+      >
         Приветствую вас на новом этапе вашего путешествия к здоровью и счастью!
         Ваша заявка успешно отправлена и я скоро свяжусь с Вами!
       </h1>
       <div
-        class="mx-auto grid max-w-[720px] gap-7 text-center text-lg text-stromboli-200"
+        class="grid max-w-[720px] gap-4 text-lg text-stromboli-200 lg:mx-auto lg:gap-7 lg:text-center"
       >
         <p>
           Приветствую на новом этапе к здоровью и счастью! Ваш выбор говорит о
@@ -38,4 +39,13 @@ import bg from '../assets/evgenia-waldmann-grass.jpg';
       </div>
     </div>
   </div>
+
+  <Image
+    fetchpriority="high"
+    loading="eager"
+    src={bg}
+    alt=""
+    aria-hidden
+    class="absolute inset-0 -z-10 h-screen w-screen object-cover object-left-top lg:object-top"
+  />
 </Layout>
