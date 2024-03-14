@@ -1,11 +1,11 @@
 ---
-import Button from './Button.astro';
-import { Image, getImage } from 'astro:assets';
-import hero from '../assets/evgenia-waldmann.png';
+import Button from "./Button.astro";
+import { Image, getImage } from "astro:assets";
+import hero from "../assets/evgenia-waldmann.png";
 
 const optimizedImage = await getImage({
   src: hero,
-  format: 'webp',
+  format: "webp",
 });
 ---
 

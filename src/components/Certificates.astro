@@ -1,7 +1,7 @@
 ---
-import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
-import { sanityClient } from 'sanity:client';
-import SanityImage from './SanityImage.astro';
+import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import { sanityClient } from "sanity:client";
+import SanityImage from "./SanityImage.astro";
 
 type Certificate = {
   title: string;
@@ -9,7 +9,7 @@ type Certificate = {
 };
 
 const certificates = await sanityClient.fetch<Certificate[]>(
-  `*[_type == "certificate"]`
+  `*[_type == "certificate"]`,
 );
 ---
 

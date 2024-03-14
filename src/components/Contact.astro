@@ -79,20 +79,20 @@
     const formData = new FormData(target);
 
     fetch(target.action, {
-        method: target.method,
-        body: formData,
-        headers: {
-            'Accept': 'application/json'
-        }
+      method: target.method,
+      body: formData,
+      headers: {
+        Accept: "application/json",
+      },
     })
-    .then(response => {
+      .then((response) => {
         if (response.ok) {
-            window.location.href = '/success';
+          window.location.href = "/success";
         }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   }
 
   form?.addEventListener("submit", handleSubmit);

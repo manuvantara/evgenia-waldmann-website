@@ -1,9 +1,9 @@
 ---
-import type { HTMLAttributes } from 'astro/types';
-import imageUrlBuilder from '@sanity/image-url';
-import { sanityClient } from 'sanity:client';
+import type { HTMLAttributes } from "astro/types";
+import imageUrlBuilder from "@sanity/image-url";
+import { sanityClient } from "sanity:client";
 
-interface Props extends HTMLAttributes<'img'> {
+interface Props extends HTMLAttributes<"img"> {
   node: any;
 }
 
@@ -15,14 +15,14 @@ const { node, width = 960, ...attributes } = Astro.props;
 // presenting images, and https://www.sanity.io/docs/image-url for specifics on
 // this builder API
 const image =
-  node && builder.image(node).width(Number(width)).fit('max').auto('format');
+  node && builder.image(node).width(Number(width)).fit("max").auto("format");
 ---
 
 {
   image && (
     <img
       src={image.url()}
-      alt={node.alt || ''}
+      alt={node.alt || ""}
       title={node.alt}
       decoding="async"
       {...attributes}

@@ -1,12 +1,12 @@
 ---
-import { YouTube } from '@astro-community/astro-embed-youtube';
-import { sanityClient } from 'sanity:client';
+import { YouTube } from "@astro-community/astro-embed-youtube";
+import { sanityClient } from "sanity:client";
 
 export const prerender = false;
 
 const reviews = await sanityClient.fetch(
   // Do not fetch unpublished reviews
-  `*[_type == "review"] | order(_createdAt desc)`
+  `*[_type == "review"] | order(_createdAt desc)`,
 );
 ---
 
@@ -27,7 +27,7 @@ const reviews = await sanityClient.fetch(
           <YouTube
             class="rounded-3xl object-cover"
             id={review.url}
-            title={review.title || 'YouTube video'}
+            title={review.title || "YouTube video"}
           />
         ))
       }
