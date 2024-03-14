@@ -1,12 +1,10 @@
 ---
+import { Image } from "astro:assets";
 import Button from "./Button.astro";
-import { Image, getImage } from "astro:assets";
-import hero from "../assets/evgenia-waldmann.png";
+interface Props {
+  optimizedImage: any;
+}
 
-const optimizedImage = await getImage({
-  src: hero,
-  format: "webp",
-});
 ---
 
 <div
