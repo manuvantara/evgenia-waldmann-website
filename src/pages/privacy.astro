@@ -3,8 +3,9 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Политика конфиденциальности">
-  <div class="container pb-12 pt-16 text-stromboli-950">
-    <h1 class="mb-4 text-3xl font-bold">Datenschutzerklärung</h1>
+  <div class="container pb-12 pt-16 flex flex-col gap-8 text-stromboli-950">
+    <div>
+      <h1 class="mb-4 text-3xl font-bold">Datenschutzerklärung</h1>
 
     <p>
       Mit der nachfolgenden Datenschutzerklärung unterrichte ich Sie über die
@@ -15,39 +16,43 @@ import Layout from '../layouts/Layout.astro';
       Bundesdatenschutzgesetz (BDSG), dem Telemediengesetz (TMG) und der
       Datenschutz-Grundverordnung (DSGVO).
     </p>
+    </div>
 
-    <h2 class="mb-2 text-2xl font-bold">
-      Erhebung, Verarbeitung und Nutzung personenbezogener Daten
-    </h2>
+    <div>
+      <h2 class="mb-4 text-2xl font-bold">
+        Erhebung, Verarbeitung und Nutzung personenbezogener Daten
+      </h2>
+  
+      <p>
+        Bei jedem Besuch der Webseite www.essencereiki.de werden automatisch
+        personenbezogene Daten erhoben und verarbeitet. Die folgenden Daten werden
+        erhoben, um Besucherstatistiken über die Nutzung dieser Webseite zu
+        erstellen, die Webseite zu verbessern und vor Cyberattacken zu schützen:
+      </p>
 
-    <p>
-      Bei jedem Besuch der Webseite www.essencereiki.de werden automatisch
-      personenbezogene Daten erhoben und verarbeitet. Die folgenden Daten werden
-      erhoben, um Besucherstatistiken über die Nutzung dieser Webseite zu
-      erstellen, die Webseite zu verbessern und vor Cyberattacken zu schützen:
-    </p>
+      <ul class="ml-4 list-disc">
+        <li>
+          Das Datum und der Besuch der URL, auf der sich der Besucher befindet.
+        </li>
+        <li>die URL, die der Besucher unmittelbar zuvor besucht hat.</li>
+        <li>der verwendete Browser.</li>
+        <li>das verwendete Betriebssystem.</li>
+        <li>die gekürzte IP-Adresse des Besuchers.</li>
+      </ul>
+  
+      <p>
+        Hierbei handelt es sich ausschließlich um Informationen, welche keine
+        Rückschlüsse auf Ihre Person zulassen. Die IP-Adresse wird unmittelbar
+        nach Beendigung der Nutzung gelöscht. Zudem werden diese Daten ebenso beim
+        Zugriff auf jede andere Website im Internet generiert. Es handelt sich
+        hierbei also nicht um eine spezifische Funktion dieser Website.
+        Informationen dieser Art werden ausschließlich anonymisiert erhoben und
+        von uns statistisch ausgewertet.
+      </p>
+    </div>
 
-    <ul class="ml-4 list-disc">
-      <li>
-        Das Datum und der Besuch der URL, auf der sich der Besucher befindet.
-      </li>
-      <li>die URL, die der Besucher unmittelbar zuvor besucht hat.</li>
-      <li>der verwendete Browser.</li>
-      <li>das verwendete Betriebssystem.</li>
-      <li>die gekürzte IP-Adresse des Besuchers.</li>
-    </ul>
-
-    <p>
-      Hierbei handelt es sich ausschließlich um Informationen, welche keine
-      Rückschlüsse auf Ihre Person zulassen. Die IP-Adresse wird unmittelbar
-      nach Beendigung der Nutzung gelöscht. Zudem werden diese Daten ebenso beim
-      Zugriff auf jede andere Website im Internet generiert. Es handelt sich
-      hierbei also nicht um eine spezifische Funktion dieser Website.
-      Informationen dieser Art werden ausschließlich anonymisiert erhoben und
-      von uns statistisch ausgewertet.
-    </p>
-
-    <h2 class="mb-2 text-2xl font-bold">Verwendung von Cookies</h2>
+    <div>
+      <h2 class="mb-4 text-2xl font-bold">Verwendung von Cookies</h2>
 
     <p>
       Um den Besuch meiner Webseite attraktiv zu gestalten und die Nutzung
@@ -63,8 +68,10 @@ import Layout from '../layouts/Layout.astro';
       Webseite ist in diesem Falle immer noch aufrufbar, die Funktionsweise
       jedoch eingeschränkt.
     </p>
+    </div>
 
-    <h2 class="mb-2 text-2xl font-bold">Webseiten-Analyse</h2>
+    <div>
+      <h2 class="mb-4 text-2xl font-bold">Webseiten-Analyse</h2>
 
     <p>
       Diese Website benutzt Google Analytics, einen Webanalysedienst der Google
@@ -101,5 +108,6 @@ import Layout from '../layouts/Layout.astro';
       sowie die Verarbeitung dieser Daten durch Google verhindern, indem sie das
       unter dem folgenden Link verfügbare Browser-Plugin herunterladen und
     </p>
+    </div>
   </div></Layout
 >
