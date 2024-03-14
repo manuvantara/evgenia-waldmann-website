@@ -1,11 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import Button from "./Button.astro";
-interface Props {
-  optimizedImage: any;
-}
 
-const { optimizedImage } = Astro.props;
+import image from "../assets/evgenia-waldmann.png";
 ---
 
 <div
@@ -37,9 +34,7 @@ const { optimizedImage } = Astro.props;
       </div>
       <Image
         class="min-h-[400px] object-cover object-center lg:h-full lg:w-full"
-        src={optimizedImage.src}
-        width={optimizedImage.attributes.width}
-        height={optimizedImage.attributes.height}
+        src={image}
         loading="eager"
         fetchpriority="high"
         alt="Evgenia Valdmann"
