@@ -27,5 +27,5 @@ export default defineConfig({
     react(),
   ],
   output: "hybrid",
-  adapter: netlify(),
+  adapter: netlify({ imageCDN: false }),
 });
