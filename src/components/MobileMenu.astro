@@ -2,6 +2,7 @@
 import type { HTMLAttributes } from "astro/types";
 
 import { Image } from "astro:assets";
+import Logo from "./Logo.astro";
 
 interface Props extends HTMLAttributes<"div"> {
   items: {
@@ -19,7 +20,7 @@ const { items, ...attributes } = Astro.props;
 >
   <div class="container">
     <div class="flex items-center justify-between py-6">
-      <Image src="/logo.svg" alt="Logo" width={40} height={32} />
+      <Logo />
       <button
         data-close-button
         class="flex size-8 items-center justify-center rounded-full bg-reef-200 fill-stromboli-700 text-stromboli-700"

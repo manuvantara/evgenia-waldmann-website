@@ -1,7 +1,7 @@
 ---
-import { Image } from "astro:assets";
 import MobileMenu from "./MobileMenu.astro";
 import Button from "./Button.astro";
+import Logo from "./Logo.astro";
 
 const items = [
   {
@@ -28,15 +28,7 @@ const items = [
   class="sticky top-0 z-50 mx-auto max-w-[1440px] rounded-br-[32px] bg-stromboli-700 pb-8 pt-6 transition-all duration-200 lg:rounded-b-[64px] xl:rounded-b-[128px]"
 >
   <div class="container flex items-center justify-between">
-    <!-- TODO: Center navbar -->
-    <Image
-      class="h-8 w-10 xl:h-12 xl:w-[60px]"
-      src="/logo.svg"
-      alt="Logo"
-      width={60}
-      height={48}
-      loading="eager"
-    />
+    <Logo />
     <nav
       class="hidden h-12 rounded-3xl bg-stromboli-600 px-8 py-[15px] lg:block"
     >
