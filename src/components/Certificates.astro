@@ -1,7 +1,7 @@
 ---
-import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
-import { sanityClient } from "sanity:client";
-import SanityImage from "./SanityImage.astro";
+import type { SanityImageSource } from '@sanity/image-url/lib/types/types';
+import { sanityClient } from 'sanity:client';
+import SanityImage from './SanityImage.astro';
 
 type Certificate = {
   title: string;
@@ -9,7 +9,7 @@ type Certificate = {
 };
 
 const certificates = await sanityClient.fetch<Certificate[]>(
-  `*[_type == "certificate"]`,
+  `*[_type == "certificate"]`
 );
 ---
 
@@ -23,7 +23,6 @@ const certificates = await sanityClient.fetch<Certificate[]>(
           <SanityImage
             node={certificate.image}
             loading="eager"
-            fetchpriority="high"
             class="h-[200px]"
           />
         ))
@@ -35,7 +34,28 @@ const certificates = await sanityClient.fetch<Certificate[]>(
           <SanityImage
             node={certificate.image}
             loading="eager"
-            fetchpriority="high"
+            class="h-[200px]"
+          />
+        ))
+      }
+    </div>
+    <div class="flex shrink-0 animate-marquee [gap:var(--gap)]">
+      {
+        certificates.map((certificate) => (
+          <SanityImage
+            node={certificate.image}
+            loading="eager"
+            class="h-[200px]"
+          />
+        ))
+      }
+    </div>
+    <div class="flex shrink-0 animate-marquee [gap:var(--gap)]">
+      {
+        certificates.map((certificate) => (
+          <SanityImage
+            node={certificate.image}
+            loading="eager"
             class="h-[200px]"
           />
         ))
