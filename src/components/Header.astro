@@ -82,18 +82,19 @@ const items = [
   }
 
   // CTA background;
-  const ctaBackgroundImage =
-    document.querySelector<HTMLImageElement>('#cta-bg');
+  const ctaBackgroundImage = document.querySelector<HTMLImageElement>(
+    '#cta-bg'
+  ) as HTMLImageElement;
 
   function handleScroll() {
-    const headerRect = header.getBoundingClientRect();
+    const headerRect = header?.getBoundingClientRect();
 
     // Check each section for overlap
     for (const section of sections) {
-      const sectionRect = section.element.getBoundingClientRect();
+      const sectionRect = section?.element?.getBoundingClientRect();
       const shouldRound = isSectionOverlappingHeader(headerRect, sectionRect);
 
-      section.element.classList.toggle('!rounded-t-none', shouldRound);
+      section?.element?.classList.toggle('!rounded-t-none', shouldRound);
 
       // Special handling for CTA overlap
       if (section.id === 'cta' && shouldRound) {
@@ -106,15 +107,18 @@ const items = [
 
     const isOverlappingAnySection = sections.some((section) =>
       isSectionOverlappingHeader(
-        headerRect,
-        section.element.getBoundingClientRect()
+        headerRect as DOMRect,
+        section?.element?.getBoundingClientRect() as DOMRect
       )
     );
-    header.classList.toggle('!rounded-b-none', isOverlappingAnySection);
+    header?.classList.toggle('!rounded-b-none', isOverlappingAnySection);
   }
 
   // Helper for checking overlap
-  function isSectionOverlappingHeader(headerRect, sectionRect) {
+  function isSectionOverlappingHeader(
+    headerRect: DOMRect,
+    sectionRect: DOMRect
+  ) {
     return !(
       headerRect.bottom < sectionRect.top ||
       headerRect.top > sectionRect.bottom - headerRect.height * 2
