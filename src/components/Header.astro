@@ -1,24 +1,24 @@
 ---
-import MobileMenu from "./MobileMenu.astro";
-import Button from "./Button.astro";
-import Logo from "./Logo.astro";
+import MobileMenu from './MobileMenu.astro';
+import Button from './Button.astro';
+import Logo from './Logo.astro';
 
 const items = [
   {
-    name: "Программа",
-    href: "#program",
+    name: 'Программа',
+    href: '#program',
   },
   {
-    name: "Обо мне",
-    href: "#about-me",
+    name: 'Обо мне',
+    href: '#about-me',
   },
   {
-    name: "Отзывы",
-    href: "#reviews",
+    name: 'Отзывы',
+    href: '#reviews',
   },
   {
-    name: "Ответы на вопросы",
-    href: "#faq",
+    name: 'Ответы на вопросы',
+    href: '#faq',
   },
 ];
 ---
@@ -64,83 +64,69 @@ const items = [
 </header>
 
 <script>
-  const header = document.querySelector<HTMLElement>("[data-header]");
-  const menuButton = document.querySelector("[data-menu-button]");
-  const menu = document.querySelector("[data-menu]");
-  const heroSection = document.querySelector<HTMLElement>("#hero");
-  const programSection = document.querySelector<HTMLElement>("#program");
-  const ctaSection = document.querySelector<HTMLElement>("#cta");
-  const ctaBackgroundImage = document.querySelector<HTMLElement>("#cta-bg");
-  const contactSection = document.querySelector<HTMLElement>("#contact");
+  const header = document.querySelector<HTMLElement>('[data-header]');
+  const menuButton = document.querySelector('[data-menu-button]');
+  const menu = document.querySelector('[data-menu]');
 
-  function handleScroll() {
-    if (
-      !header ||
-      !heroSection ||
-      !programSection ||
-      !ctaSection ||
-      !ctaBackgroundImage ||
-      !contactSection
-    ) {
-      throw new Error("One of the elements not found");
-    }
+  // Scrollable sections
+  const sections = [
+    { id: 'hero', element: document.querySelector<HTMLElement>('#hero') },
+    { id: 'program', element: document.querySelector<HTMLElement>('#program') },
+    { id: 'cta', element: document.querySelector<HTMLElement>('#cta') },
+    { id: 'contact', element: document.querySelector<HTMLElement>('#contact') },
+  ];
 
-    const headerRect = header.getBoundingClientRect();
-
-    const heroRect = heroSection.getBoundingClientRect();
-    const programRect = programSection.getBoundingClientRect();
-    const ctaRect = ctaSection.getBoundingClientRect();
-    const contactRect = contactSection.getBoundingClientRect();
-
-    if (
-      !(
-        headerRect.bottom < heroRect.top ||
-        headerRect.top > heroRect.bottom - headerRect.height * 2
-      )
-    ) {
-      heroSection.classList.add("!rounded-t-none");
-      header.classList.add("!rounded-b-none");
-    } else if (
-      !(
-        headerRect.bottom < programRect.top ||
-        headerRect.top > programRect.bottom - headerRect.height * 2
-      )
-    ) {
-      programSection.classList.add("!rounded-t-none");
-      header.classList.add("!rounded-b-none");
-    } else if (
-      !(
-        headerRect.bottom < ctaRect.top ||
-        headerRect.top > ctaRect.bottom - headerRect.height * 2
-      )
-    ) {
-      ctaSection.classList.add("!rounded-t-none");
-      ctaBackgroundImage.classList.add("!opacity-0");
-      header.classList.add("!rounded-b-none");
-    } else if (
-      !(
-        headerRect.bottom < contactRect.top ||
-        headerRect.top > contactRect.bottom - headerRect.height * 2
-      )
-    ) {
-      contactSection.classList.add("!rounded-t-none");
-      header.classList.add("!rounded-b-none");
-    } else {
-      heroSection.classList.remove("!rounded-t-none");
-      programSection.classList.remove("!rounded-t-none");
-      ctaSection.classList.remove("!rounded-t-none");
-      contactSection.classList.remove("!rounded-t-none");
-      header.classList.remove("!rounded-b-none");
-    }
-
-    if (headerRect.bottom < ctaRect.top) {
-      ctaBackgroundImage.classList.remove("!opacity-0");
-    }
+  // Early exit if elements aren't found
+  if (!header || sections.some((section) => !section.element)) {
+    throw new Error('One of the elements not found');
   }
 
-  window.addEventListener("scroll", handleScroll);
+  // CTA background;
+  const ctaBackgroundImage =
+    document.querySelector<HTMLImageElement>('#cta-bg');
 
-  menuButton?.addEventListener("click", () => {
-    menu?.setAttribute("data-state", "open");
+  function handleScroll() {
+    const headerRect = header.getBoundingClientRect();
+
+    // Check each section for overlap
+    for (const section of sections) {
+      const sectionRect = section.element.getBoundingClientRect();
+      const shouldRound = isSectionOverlappingHeader(headerRect, sectionRect);
+
+      section.element.classList.toggle('!rounded-t-none', shouldRound);
+
+      // Special handling for CTA overlap
+      if (section.id === 'cta' && shouldRound) {
+        ctaBackgroundImage.classList.add('!opacity-0');
+        break;
+      } else {
+        ctaBackgroundImage.classList.remove('!opacity-0');
+      }
+    }
+
+    const isOverlappingAnySection = sections.some((section) =>
+      isSectionOverlappingHeader(
+        headerRect,
+        section.element.getBoundingClientRect()
+      )
+    );
+    header.classList.toggle('!rounded-b-none', isOverlappingAnySection);
+  }
+
+  // Helper for checking overlap
+  function isSectionOverlappingHeader(headerRect, sectionRect) {
+    return !(
+      headerRect.bottom < sectionRect.top ||
+      headerRect.top > sectionRect.bottom - headerRect.height * 2
+    );
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    handleScroll();
+
+    window.addEventListener('scroll', handleScroll);
+    menuButton?.addEventListener('click', () => {
+      menu?.setAttribute('data-state', 'open');
+    });
   });
 </script>
