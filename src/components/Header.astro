@@ -92,7 +92,7 @@ const items = [
     // Check each section for overlap
     for (const section of sections) {
       const sectionRect = section?.element?.getBoundingClientRect();
-      const shouldRound = isSectionOverlappingHeader(headerRect, sectionRect);
+      const shouldRound = isSectionOverlappingHeader(headerRect as DOMRect, sectionRect as DOMRect);
 
       section?.element?.classList.toggle('!rounded-t-none', shouldRound);
 
